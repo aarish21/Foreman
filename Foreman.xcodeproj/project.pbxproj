@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		5188E4D4D2AF877B43D75B13 /* Pods_Foreman.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BF82CF69F8549AA851A6072 /* Pods_Foreman.framework */; };
+		6F25EF8528B6B87200F54649 /* ExtensionTextfield.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25EF8428B6B87200F54649 /* ExtensionTextfield.swift */; };
+		6F25EF8A28B6C26500F54649 /* NameTFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F25EF8928B6C26500F54649 /* NameTFCell.xib */; };
+		6F25EF8D28B6C8B100F54649 /* NameTFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */; };
+		6F3E1D5328BCDB9C00620BF0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */; };
+		6FA7026528B5EF180094C57D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FA7026428B5EF180094C57D /* Utilities.swift */; };
 		6FD9656328B4153200D04437 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9656228B4153200D04437 /* AppDelegate.swift */; };
 		6FD9656528B4153200D04437 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9656428B4153200D04437 /* SceneDelegate.swift */; };
 		6FD9656A28B4153200D04437 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD9656828B4153200D04437 /* Main.storyboard */; };
@@ -51,6 +56,11 @@
 		0B6898EA7A07A14A484954AB /* Pods-ForemanTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForemanTests.release.xcconfig"; path = "Target Support Files/Pods-ForemanTests/Pods-ForemanTests.release.xcconfig"; sourceTree = "<group>"; };
 		15F7D605511ED64ECE1C5C59 /* Pods-Foreman.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foreman.release.xcconfig"; path = "Target Support Files/Pods-Foreman/Pods-Foreman.release.xcconfig"; sourceTree = "<group>"; };
 		5BF82CF69F8549AA851A6072 /* Pods_Foreman.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Foreman.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F25EF8428B6B87200F54649 /* ExtensionTextfield.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextfield.swift; sourceTree = "<group>"; };
+		6F25EF8928B6C26500F54649 /* NameTFCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameTFCell.xib; sourceTree = "<group>"; };
+		6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTFCell.swift; sourceTree = "<group>"; };
+		6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6FA7026428B5EF180094C57D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6FD9655F28B4153200D04437 /* Foreman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foreman.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FD9656228B4153200D04437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6FD9656428B4153200D04437 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +119,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F25EF8628B6B87800F54649 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6F25EF8428B6B87200F54649 /* ExtensionTextfield.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		6F25EF8B28B6C88B00F54649 /* FirstAndLastName */ = {
+			isa = PBXGroup;
+			children = (
+				6F25EF8928B6C26500F54649 /* NameTFCell.xib */,
+				6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */,
+			);
+			path = FirstAndLastName;
+			sourceTree = "<group>";
+		};
 		6FD9655628B4153200D04437 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				6FD9659C28B488E100D04437 /* FMSignUpVC.swift */,
+				6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -210,6 +238,8 @@
 			isa = PBXGroup;
 			children = (
 				6FF18BF128B4AFDF009814A9 /* ImagePicker.swift */,
+				6FA7026428B5EF180094C57D /* Utilities.swift */,
+				6F25EF8628B6B87800F54649 /* Extensions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -233,6 +263,7 @@
 		6FD965A328B4982800D04437 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				6F25EF8B28B6C88B00F54649 /* FirstAndLastName */,
 				6FF18BF728B4C155009814A9 /* TextField */,
 				6FF18BF828B4C197009814A9 /* IDImage */,
 				6FF18BF928B4C1A2009814A9 /* Button */,
@@ -405,6 +436,7 @@
 				6FF18BF428B4B069009814A9 /* IDImageCell.xib in Resources */,
 				6FF18BEE28B4A2E3009814A9 /* ButtonCell.xib in Resources */,
 				6FD9656A28B4153200D04437 /* Main.storyboard in Resources */,
+				6F25EF8A28B6C26500F54649 /* NameTFCell.xib in Resources */,
 				6FD965A228B496CA00D04437 /* TextfieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,6 +583,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FD9659F28B4894200D04437 /* FMSignUpVM.swift in Sources */,
+				6F25EF8528B6B87200F54649 /* ExtensionTextfield.swift in Sources */,
 				6FD9656328B4153200D04437 /* AppDelegate.swift in Sources */,
 				6FD9659D28B488E100D04437 /* FMSignUpVC.swift in Sources */,
 				6FD9656528B4153200D04437 /* SceneDelegate.swift in Sources */,
@@ -558,7 +591,10 @@
 				6FF18BF228B4AFDF009814A9 /* ImagePicker.swift in Sources */,
 				6FD9659B28B4885D00D04437 /* Constants.swift in Sources */,
 				6FF18BF028B4A3B8009814A9 /* ButtonCell.swift in Sources */,
+				6FA7026528B5EF180094C57D /* Utilities.swift in Sources */,
 				6FF18BF628B4B0F3009814A9 /* IDImageCell.swift in Sources */,
+				6F25EF8D28B6C8B100F54649 /* NameTFCell.swift in Sources */,
+				6F3E1D5328BCDB9C00620BF0 /* MainVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

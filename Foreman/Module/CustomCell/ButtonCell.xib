@@ -3,13 +3,12 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="button" id="SnZ-fq-fcQ" customClass="ButtonCell" customModule="Foreman" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" id="SnZ-fq-fcQ" customClass="ButtonCell" customModule="Foreman" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SnZ-fq-fcQ" id="GbJ-P6-0IE">
@@ -17,17 +16,18 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzL-TM-zgd">
-                        <rect key="frame" x="41.5" y="22" width="331" height="17.5"/>
-                        <color key="backgroundColor" name="AccentColor"/>
+                        <rect key="frame" x="0.0" y="4.5" width="414" height="35"/>
+                        <color key="backgroundColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Submit"/>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="OzL-TM-zgd" firstAttribute="width" secondItem="GbJ-P6-0IE" secondAttribute="width" multiplier="0.8" id="PUA-5a-tce"/>
-                    <constraint firstItem="OzL-TM-zgd" firstAttribute="centerY" secondItem="GbJ-P6-0IE" secondAttribute="centerY" multiplier="1.4" id="o2c-Bn-Hgi"/>
-                    <constraint firstItem="OzL-TM-zgd" firstAttribute="height" secondItem="GbJ-P6-0IE" secondAttribute="height" multiplier="0.4" id="u0D-Jw-ACO"/>
+                    <constraint firstItem="OzL-TM-zgd" firstAttribute="width" secondItem="GbJ-P6-0IE" secondAttribute="width" id="PUA-5a-tce"/>
+                    <constraint firstItem="OzL-TM-zgd" firstAttribute="centerY" secondItem="GbJ-P6-0IE" secondAttribute="centerY" id="o2c-Bn-Hgi"/>
+                    <constraint firstItem="OzL-TM-zgd" firstAttribute="height" secondItem="GbJ-P6-0IE" secondAttribute="height" multiplier="0.8" id="u0D-Jw-ACO"/>
                     <constraint firstItem="OzL-TM-zgd" firstAttribute="centerX" secondItem="GbJ-P6-0IE" secondAttribute="centerX" id="y9g-zv-WgA"/>
                 </constraints>
             </tableViewCellContentView>
@@ -37,9 +37,4 @@
             <point key="canvasLocation" x="69.565217391304358" y="61.607142857142854"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-    </resources>
 </document>

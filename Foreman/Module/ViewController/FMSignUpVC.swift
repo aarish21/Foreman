@@ -8,17 +8,28 @@
 import Foundation
 import UIKit
 
-class FMSignUpVC: UIViewController {
+class FMSignUpVC: UIViewController, IDImageCellDelegate {
+
     @IBOutlet var signUpTV: UITableView!
-    let placeholder = ["Name*", "Address*", "Age*", "Experience in Years*"]
+    @IBOutlet weak var printBtn: UIButton!
+
+    var signUpVMobj: FMSignUpVM?
+    var isImageSelected = false
+
     override func viewDidLoad() {
-        signUpTV.delegate = self
-        signUpTV.dataSource = self
-        self.navigationItem.title = Constants.signUpTitle
-        signUpTV.register(UINib(nibName: "TextfieldCell", bundle: .main), forCellReuseIdentifier: "signUpCell")
-        signUpTV.register(UINib(nibName: "ButtonCell", bundle: .main), forCellReuseIdentifier: "button")
-        signUpTV.register(UINib(nibName: "IDImageCell", bundle: .main), forCellReuseIdentifier: "img")
         super.viewDidLoad()
+        self.signUpVMobj = FMSignUpVM(signUpVC: self)
+//        self.navigationItem.title = Constants.signUpTitle
+        signUpVMobj?.setupView()
+    }
+
+    @IBAction func printBtnAction(_ sender: Any) {
+        signUpVMobj?.printVM()
+    }
+
+    func didSelectImage(with isSelect: Bool) {
+        self.isImageSelected  = isSelect
+        print(isImageSelected, "dsada", isSelect)
     }
 }
 
@@ -27,28 +38,51 @@ extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
         6
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.NameCell, for: indexPath) as? NameTFCell
+            cell?.setup()
+            return cell!
+        }
         if indexPath.row == 5 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "button", for: indexPath) as? ButtonCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.btnCell, for: indexPath) as? ButtonCell
             cell?.setup()
             return cell!
         } else if  indexPath.row == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "img", for: indexPath) as? IDImageCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.iDCell, for: indexPath) as? IDImageCell
+            cell?.delegate = self
+            cell?.isImageSelected = { value in
+                self.isImageSelected = value
+                self.signUpTV.reloadData()
+            }
+            if isImageSelected {
+                cell?.idImage.isHidden = false
+            } else {
+                cell?.idImage.isHidden = true
+            }
             cell?.pickImage()
             return cell!
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "signUpCell", for: indexPath) as? TextfieldCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
             cell?.setup()
-            cell?.textfield.placeholder = self.placeholder[indexPath.row]
+            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
+            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
+            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
             return cell!
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 5 {
-            return 100
-        }
         if indexPath.row == 4 {
-            return 380
+            if isImageSelected {
+                return 150
+            } else {
+               return 60
+            }
         }
-        return 50
+        if indexPath.row == 5 {
+            return 60
+        }
+        return 110
     }
 }

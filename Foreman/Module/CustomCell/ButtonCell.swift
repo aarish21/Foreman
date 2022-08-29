@@ -10,6 +10,6 @@ import UIKit
 class ButtonCell: UITableViewCell {
     @IBOutlet var submitButton: UIButton!
     func setup() {
-        submitButton.layer.cornerRadius = 5
+        submitButton.layer.cornerRadius = 15
     }
 }

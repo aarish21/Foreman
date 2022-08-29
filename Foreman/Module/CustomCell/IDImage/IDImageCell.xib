@@ -3,54 +3,56 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="355" id="03i-n4-qG6" customClass="IDImageCell" customModule="Foreman" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="401" height="355"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="IDImageCell" rowHeight="191" id="03i-n4-qG6" customClass="IDImageCell" customModule="Foreman" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="191"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="03i-n4-qG6" id="hpd-UX-wHj">
-                <rect key="frame" x="0.0" y="0.0" width="401" height="355"/>
+                <rect key="frame" x="0.0" y="0.0" width="393" height="191"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xWN-M6-czs">
-                        <rect key="frame" x="40" y="35.5" width="321" height="248.5"/>
-                    </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGy-oJ-fSi">
-                        <rect key="frame" x="120.5" y="307" width="160" height="30.5"/>
-                        <color key="backgroundColor" name="AccentColor"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attach ID*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tK5-UL-BT9">
+                        <rect key="frame" x="5" y="20" width="80" height="31"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                        <color key="textColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ohl-OY-OCV">
+                        <rect key="frame" x="90" y="20" width="45" height="31"/>
+                        <color key="tintColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" title="Pick Image"/>
+                        <buttonConfiguration key="configuration" style="plain" image="paperclip.circle.fill" catalog="system"/>
                         <connections>
-                            <action selector="pickAction:" destination="03i-n4-qG6" eventType="touchUpInside" id="HHb-6z-Cxy"/>
+                            <action selector="pickAction:" destination="03i-n4-qG6" eventType="touchUpInside" id="ffp-Xf-cGX"/>
                         </connections>
                     </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PrE-3g-IYw">
+                        <rect key="frame" x="5" y="66" width="106" height="121"/>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="xWN-M6-czs" firstAttribute="centerX" secondItem="hpd-UX-wHj" secondAttribute="centerX" id="C9W-N0-o4l"/>
-                    <constraint firstItem="xWN-M6-czs" firstAttribute="height" secondItem="hpd-UX-wHj" secondAttribute="height" multiplier="0.7" id="JhY-Uz-hGa"/>
-                    <constraint firstItem="XGy-oJ-fSi" firstAttribute="height" secondItem="xWN-M6-czs" secondAttribute="height" multiplier="0.123506" id="dV7-h6-P7a"/>
-                    <constraint firstItem="xWN-M6-czs" firstAttribute="centerY" secondItem="hpd-UX-wHj" secondAttribute="centerY" multiplier="0.9" id="gIQ-Il-8YP"/>
-                    <constraint firstItem="XGy-oJ-fSi" firstAttribute="top" secondItem="xWN-M6-czs" secondAttribute="bottom" constant="23" id="jDG-UT-YZl"/>
-                    <constraint firstItem="XGy-oJ-fSi" firstAttribute="width" secondItem="xWN-M6-czs" secondAttribute="width" multiplier="0.5" id="jvN-70-LgW"/>
-                    <constraint firstItem="xWN-M6-czs" firstAttribute="width" secondItem="hpd-UX-wHj" secondAttribute="width" multiplier="0.8" id="sy4-Hv-vyN"/>
-                    <constraint firstItem="XGy-oJ-fSi" firstAttribute="centerX" secondItem="hpd-UX-wHj" secondAttribute="centerX" id="uS4-xl-097"/>
+                    <constraint firstItem="tK5-UL-BT9" firstAttribute="top" secondItem="hpd-UX-wHj" secondAttribute="top" constant="20" id="B4z-iy-6em"/>
+                    <constraint firstItem="tK5-UL-BT9" firstAttribute="leading" secondItem="hpd-UX-wHj" secondAttribute="leading" constant="5" id="HB5-eh-x3Y"/>
+                    <constraint firstItem="Ohl-OY-OCV" firstAttribute="height" secondItem="tK5-UL-BT9" secondAttribute="height" id="bju-v7-vzp"/>
+                    <constraint firstItem="PrE-3g-IYw" firstAttribute="leading" secondItem="hpd-UX-wHj" secondAttribute="leading" constant="5" id="exf-E5-eHO"/>
+                    <constraint firstItem="PrE-3g-IYw" firstAttribute="top" secondItem="tK5-UL-BT9" secondAttribute="bottom" constant="15" id="iNV-38-ggY"/>
+                    <constraint firstItem="PrE-3g-IYw" firstAttribute="height" secondItem="hpd-UX-wHj" secondAttribute="height" multiplier="0.633508" id="mzK-2R-lpl"/>
+                    <constraint firstItem="PrE-3g-IYw" firstAttribute="width" secondItem="hpd-UX-wHj" secondAttribute="width" multiplier="0.26972" id="soA-CM-dwy"/>
+                    <constraint firstItem="Ohl-OY-OCV" firstAttribute="top" secondItem="hpd-UX-wHj" secondAttribute="top" constant="20" id="tSF-7e-hsh"/>
+                    <constraint firstItem="Ohl-OY-OCV" firstAttribute="leading" secondItem="tK5-UL-BT9" secondAttribute="trailing" constant="5" id="z2v-5F-6Fg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="idImage" destination="xWN-M6-czs" id="Drx-6C-gug"/>
-                <outlet property="pick" destination="XGy-oJ-fSi" id="04I-Fg-xbY"/>
+                <outlet property="idImage" destination="PrE-3g-IYw" id="Mtd-Oj-AZt"/>
             </connections>
-            <point key="canvasLocation" x="67.391304347826093" y="-13.058035714285714"/>
+            <point key="canvasLocation" x="-0.7246376811594204" y="-193.19196428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
+        <image name="paperclip.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
