@@ -32,6 +32,7 @@ class IDImageCell: UITableViewCell, ImagePickerDelegate {
     }
     func didSelect(image: UIImage?) {
         idImage.image = image
+//        imagePicker.pickerController.resignFirstResponder()
 //        delegate?.didSelectImage(with: true)
         isImageSelected?(true)
     }
