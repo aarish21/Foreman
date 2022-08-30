@@ -1,0 +1,6 @@
+framework module Pods_Foreman {
+  umbrella header "Pods-Foreman-umbrella.h"
+
+  export *
+  module * { export * }
+}

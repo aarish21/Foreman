@@ -9,20 +9,12 @@ import Foundation
 import UIKit
 
 struct Constants {
-    static let signUpTitle = "Sign Up"
+    static let signUpTitle = "Foreman"
     static let tfCell = "TextfieldCell"
-
-    static func getTopVC() -> UIViewController {
-        let keyWin = UIApplication
-            .shared
-            .connectedScenes
-            .flatMap { ($0 as? UIWindowScene)?.windows ?? [] }
-            .first { $0.isKeyWindow }
-        var topMostViewController = keyWin?.rootViewController
-
-        while let presentedViewController = topMostViewController?.presentedViewController {
-            topMostViewController = presentedViewController
-        }
-        return topMostViewController!
-    }
+    static let btnCell = "ButtonCell"
+    static let iDCell = "IDImageCell"
+    static let headingCell = "HeadingCell"
+    static let nameCell = "NameTFCell"
+    static let imageName = ["", "", "house", "calendar", "doc.append"]
+    static let placeholder = ["", "", "Address*", "Age*", "Experience in Years*"]
 }

@@ -14,15 +14,21 @@ protocol IDImageCellDelegate: AnyObject {
 class IDImageCell: UITableViewCell, ImagePickerDelegate {
     @IBOutlet weak var idImage: UIImageView!
     var imagePicker: ImagePicker!
-    var isImageSelected: ((_ value: Bool)->())?
+    var isImageSelected: ((_ value: Bool) -> Void)?
     weak var delegate: IDImageCellDelegate?
     func pickImage() {
         self.imagePicker = ImagePicker(presentationController: Utilities.getTopVC(), delegate: self)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(addAction))
+        idImage.addGestureRecognizer(tap)
+        idImage.isUserInteractionEnabled = true
     }
     @IBAction func pickAction(_ sender: UIButton) {
         DispatchQueue.main.async {
             self.imagePicker.present(from: sender)
         }
+    }
+    @objc func addAction(sender: UITapGestureRecognizer) {
+        self.imagePicker.present(from: sender.view!)
     }
     func didSelect(image: UIImage?) {
         idImage.image = image

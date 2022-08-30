@@ -19,7 +19,7 @@ class FMSignUpVC: UIViewController, IDImageCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.signUpVMobj = FMSignUpVM(signUpVC: self)
-//        self.navigationItem.title = Constants.signUpTitle
+        self.navigationItem.title = Constants.signUpTitle
         signUpVMobj?.setupView()
     }
 
@@ -35,31 +35,34 @@ class FMSignUpVC: UIViewController, IDImageCellDelegate {
 
 extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        6
+        7
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.NameCell, for: indexPath) as? NameTFCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.headingCell, for: indexPath) as? HeadingCell
+            return cell!
+        }
+        if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.nameCell, for: indexPath) as? NameTFCell
             cell?.setup()
             return cell!
         }
-        if indexPath.row == 5 {
+        if indexPath.row == 6 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.btnCell, for: indexPath) as? ButtonCell
             cell?.setup()
             return cell!
-        } else if  indexPath.row == 4 {
+        } else if  indexPath.row == 5 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.iDCell, for: indexPath) as? IDImageCell
             cell?.delegate = self
             cell?.isImageSelected = { value in
                 self.isImageSelected = value
                 self.signUpTV.reloadData()
             }
-            if isImageSelected {
-                cell?.idImage.isHidden = false
-            } else {
-                cell?.idImage.isHidden = true
-            }
+//            if isImageSelected {
+//                cell?.idImage.isHidden = false
+//            } else {
+//                cell?.idImage.isHidden = true
+//            }
             cell?.pickImage()
             return cell!
         } else {
@@ -73,16 +76,12 @@ extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 4 {
-            if isImageSelected {
-                return 150
-            } else {
-               return 60
-            }
-        }
         if indexPath.row == 5 {
+            return 120
+        }
+        if indexPath.row == 6 {
             return 60
         }
-        return 110
+        return 100
     }
 }

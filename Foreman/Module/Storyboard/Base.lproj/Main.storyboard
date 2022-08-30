@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vWM-HJ-lo4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Sign UpVC-->
+        <!--FMSignUpVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="FMSignUpVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="FMSignUpVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="FMSignUpVC" storyboardIdentifier="FMSignUpVC" id="BYZ-38-t0r" userLabel="FMSignUpVC" customClass="FMSignUpVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,12 +37,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3001" y="193"/>
+            <point key="canvasLocation" x="3910.144927536232" y="192.85714285714286"/>
         </scene>
         <!--MainVC-->
         <scene sceneID="eh0-Ev-kVi">
             <objects>
-                <viewController storyboardIdentifier="MainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="6F6-Sp-fKG" customClass="MainVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="MainVC" storyboardIdentifier="MainVC" id="6F6-Sp-fKG" customClass="MainVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vv1-Sd-5t2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,6 +64,9 @@
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Up">
                                     <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="signUpAction:" destination="6F6-Sp-fKG" eventType="touchUpInside" id="rwp-Ny-1jG"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="adA-LT-v0P"/>
@@ -87,25 +90,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oxh-Za-cdj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2244.927536231884" y="-589.28571428571422"/>
+            <point key="canvasLocation" x="3153.6231884057975" y="-589.28571428571422"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="M8d-KT-lMy">
+        <scene sceneID="8RS-wy-8HH">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ocb-ru-7Rg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vWM-HJ-lo4" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OqH-aU-TyO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jct-L7-RIk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="6F6-Sp-fKG" kind="relationship" relationship="rootViewController" id="Spa-qb-iQy"/>
+                        <segue destination="6F6-Sp-fKG" kind="relationship" relationship="rootViewController" id="s9o-qd-GDX"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mZp-ef-j9H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p36-9T-8cB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334.7826086956522" y="-589.28571428571422"/>
+            <point key="canvasLocation" x="2243.4782608695655" y="-589.28571428571422"/>
         </scene>
     </scenes>
     <resources>

@@ -1,0 +1,6 @@
+framework module Pods_Foreman_ForemanUITests {
+  umbrella header "Pods-Foreman-ForemanUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
