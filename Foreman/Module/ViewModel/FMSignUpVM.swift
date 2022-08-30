@@ -22,6 +22,7 @@ class FMSignUpVM {
     private func setupTableView() {
         signUpVC?.signUpTV.delegate = signUpVC
         signUpVC?.signUpTV.dataSource = signUpVC
+        signUpVC?.signUpTV.register(UINib(nibName: Constants.radioCell, bundle: .main), forCellReuseIdentifier: Constants.radioCell)
         signUpVC?.signUpTV.register(UINib(nibName: Constants.headingCell, bundle: .main), forCellReuseIdentifier: Constants.headingCell)
         signUpVC?.signUpTV.register(UINib(nibName: Constants.tfCell, bundle: .main), forCellReuseIdentifier: Constants.tfCell)
         signUpVC?.signUpTV.register(UINib(nibName: Constants.btnCell, bundle: .main), forCellReuseIdentifier: Constants.btnCell)

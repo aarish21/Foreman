@@ -18,6 +18,7 @@ class NameTFCell: UITableViewCell, UITextFieldDelegate {
         firstView.layer.cornerRadius = 15
 //        firstTF.setLeftPaddingPoints(10)
         firstTF.delegate = self
+        secondTF.delegate = self
         firstView.layer.borderColor = .init(red: 233/255, green: 236/255, blue: 242/255, alpha: 1)
         secondView.layer.borderWidth = 2
         secondView.layer.cornerRadius = 15

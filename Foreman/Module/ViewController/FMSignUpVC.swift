@@ -15,7 +15,6 @@ class FMSignUpVC: UIViewController, IDImageCellDelegate {
     var signUpVMobj: FMSignUpVM?
     var isImageSelected = false
     var firstName = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.signUpVMobj = FMSignUpVM(signUpVC: self)
@@ -29,13 +28,18 @@ class FMSignUpVC: UIViewController, IDImageCellDelegate {
     }
 
     @objc func submitAction() {
-       
+        userData.date = Int(Date().timeIntervalSince1970)
+        FirestoreDB.signUpUser(signUpData: userData) { err in
+            if err != nil {
+                print(err?.localizedDescription as Any)
+            }
+        }
     }
 }
 
 extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        8
+        9
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
@@ -45,19 +49,77 @@ extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.nameCell, for: indexPath) as? NameTFCell
             cell?.setup()
             cell?.textFieldInput = { val in
-                print(val)
-                self.firstName = val[0]!
+                self.userData.firstName = val[0]!
+                self.userData.lastName = val[1]!
             }
             return cell!
-        } else if  indexPath.row == 6 {
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.radioCell, for: indexPath) as? RadioBtnCell
+            cell?.callBackForOption = { val in
+                if val == 1 {
+                    self.userData.jobProfile = "Manager"
+                } else {
+                    self.userData.jobProfile = "Foreman"
+                }
+            }
+            return cell!
+        } else if  indexPath.row == 7 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.iDCell, for: indexPath) as? IDImageCell
             cell?.delegate = self
             cell?.pickImage()
             return cell!
-        } else if indexPath.row == 7 {
+        } else if indexPath.row == 8 {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.btnCell, for: indexPath) as? ButtonCell
             cell?.setup()
             cell?.submitButton.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
+            return cell!
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
+            cell?.setup()
+            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
+            cell?.textFieldInput = { val in
+                self.userData.email = val!
+            }
+            cell?.inputTextfield.keyboardType = .emailAddress
+            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
+            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
+            return cell!
+        } else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
+            cell?.setup()
+            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
+            cell?.textFieldInput = { val in
+                self.userData.address = val!
+            }
+            cell?.inputTextfield.keyboardType = .default
+            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
+            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
+            return cell!
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
+            cell?.setup()
+            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
+            cell?.textFieldInput = { val in
+                self.userData.age = val!
+            }
+            cell?.inputTextfield.keyboardType = .numberPad
+            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
+            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
+            return cell!
+        } else if indexPath.row == 6 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
+            cell?.setup()
+            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
+            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
+            cell?.textFieldInput = { val in
+                self.userData.experience = val!
+            }
+            cell?.inputTextfield.keyboardType = .numberPad
+            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
+            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
             return cell!
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
@@ -70,14 +132,17 @@ extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 6 {
+        if indexPath.row == 7 {
             return 120
         }
-        if indexPath.row == 7 {
+        if indexPath.row == 8 {
             return 60
         }
         if indexPath.row == 0 {
             return 60
+        }
+        if indexPath.row == 3 {
+            return 125
         }
         return 100
     }

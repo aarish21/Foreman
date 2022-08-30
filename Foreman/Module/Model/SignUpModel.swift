@@ -8,11 +8,12 @@
 import Foundation
 
 struct SignUpModel: Codable {
-    let firstName: String?
-    let lastName: String?
-    let email: String?
-    let address: String?
-    let age: Int?
-    let experience: Int?
-    let date: Int?
+    var firstName: String = ""
+    var lastName: String = ""
+    var email: String = ""
+    var address: String = ""
+    var age: String = ""
+    var experience: String = ""
+    var date: Int = 0
+    var jobProfile: String = ""
 }

@@ -15,6 +15,7 @@ struct Constants {
     static let iDCell = "IDImageCell"
     static let headingCell = "HeadingCell"
     static let nameCell = "NameTFCell"
-    static let imageName = ["", "", "envelope", "house", "calendar", "doc.append"]
-    static let placeholder = ["", "", "Email*", "Address*", "Age*", "Experience in Years*"]
+    static let radioCell = "RadioBtnCell"
+    static let imageName = ["", "", "envelope", "", "house", "calendar", "doc.append"]
+    static let placeholder = ["", "", "Email*", "", "Address*", "Age*", "Experience in Years*"]
 }
