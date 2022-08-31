@@ -22,13 +22,8 @@ class RadioBtnCell: UITableViewCell {
         // Configure the view for the selected state
     }
     func selectedOption(_ isOption1Selected: Bool) {
-        if isOption1Selected {
-            managerBtn.isSelected = true
-            foremanBtn.isSelected = false
-        } else {
-            managerBtn.isSelected = false
-            foremanBtn.isSelected = true
-        }
+        managerBtn.isSelected = isOption1Selected
+        foremanBtn.isSelected = !isOption1Selected
     }
     @IBAction func option1Selected(_ sender: Any) {
         selectedOption(true)

@@ -61,7 +61,6 @@ open class ImagePicker: NSObject {
 
     private func pickerController(_ controller: UIImagePickerController, didSelect image: UIImage?) {
         controller.dismiss(animated: true, completion: nil)
-        controller.resignFirstResponder()
         self.delegate?.didSelect(image: image)
     }
 }

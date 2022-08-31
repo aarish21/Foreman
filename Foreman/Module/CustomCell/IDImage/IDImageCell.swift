@@ -8,14 +8,11 @@
 import Foundation
 import UIKit
 import SwiftUI
-protocol IDImageCellDelegate: AnyObject {
-    func didSelectImage(with isSelect: Bool)
-}
+
 class IDImageCell: UITableViewCell, ImagePickerDelegate {
     @IBOutlet weak var idImage: UIImageView!
     var imagePicker: ImagePicker!
     var isImageSelected: ((_ value: Bool) -> Void)?
-    weak var delegate: IDImageCellDelegate?
     func pickImage() {
         self.imagePicker = ImagePicker(presentationController: Utilities.getTopVC(), delegate: self)
         let tap = UITapGestureRecognizer(target: self, action: #selector(addAction))

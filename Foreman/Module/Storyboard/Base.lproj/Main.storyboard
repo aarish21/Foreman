@@ -110,6 +110,33 @@
             </objects>
             <point key="canvasLocation" x="2243.4782608695655" y="-589.28571428571422"/>
         </scene>
+        <!--LoginVC-->
+        <scene sceneID="VIe-SB-maY">
+            <objects>
+                <viewController restorationIdentifier="FMLoginVC" storyboardIdentifier="FMLoginVC" id="zOY-mX-W2C" customClass="FMLoginVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yhg-uR-s0z">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="nMF-ln-xJc">
+                                <rect key="frame" x="20" y="50" width="374" height="806"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o9Q-KU-mdk"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nMF-ln-xJc" firstAttribute="height" secondItem="yhg-uR-s0z" secondAttribute="height" multiplier="0.9" id="AKy-zv-V1v"/>
+                            <constraint firstItem="nMF-ln-xJc" firstAttribute="width" secondItem="yhg-uR-s0z" secondAttribute="width" constant="-40" id="FxP-bf-kxC"/>
+                            <constraint firstItem="nMF-ln-xJc" firstAttribute="centerX" secondItem="o9Q-KU-mdk" secondAttribute="centerX" id="Fxv-VJ-H5I"/>
+                            <constraint firstItem="nMF-ln-xJc" firstAttribute="centerY" secondItem="o9Q-KU-mdk" secondAttribute="centerY" id="UBs-q9-Lhw"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PnH-cx-iOy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3091" y="56"/>
+        </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">

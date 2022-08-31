@@ -24,9 +24,12 @@ class NameTFCell: UITableViewCell, UITextFieldDelegate {
         secondView.layer.cornerRadius = 15
 //        secondTF.setLeftPaddingPoints(20)
         secondView.layer.borderColor = .init(red: 233/255, green: 236/255, blue: 242/255, alpha: 1)
-        
+
     }
+
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textFieldInput!([firstTF.text,secondTF.text])
+        if textField.text?.count ?? 0 > 0 {
+            textFieldInput!([firstTF.text, secondTF.text])
+        }
     }
 }

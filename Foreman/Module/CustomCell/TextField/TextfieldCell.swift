@@ -23,6 +23,8 @@ class TextfieldCell: UITableViewCell, UITextFieldDelegate {
         outerView.layer.borderColor = .init(red: 233/255, green: 236/255, blue: 242/255, alpha: 1)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
-        textFieldInput!(inputTextfield.text)
+        if textField.text?.count ?? 0 > 0 {
+            textFieldInput!(inputTextfield.text)
+        }
     }
 }

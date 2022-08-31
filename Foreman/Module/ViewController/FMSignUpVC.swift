@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class FMSignUpVC: UIViewController, IDImageCellDelegate {
+class FMSignUpVC: UIViewController {
 
     @IBOutlet var signUpTV: UITableView!
     var userData = SignUpModel()
@@ -43,92 +43,23 @@ extension FMSignUpVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.headingCell, for: indexPath) as? HeadingCell
-            return cell!
+            return signUpVMobj?.configureHeadingCell(indexPath: indexPath) ?? UITableViewCell()
         } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.nameCell, for: indexPath) as? NameTFCell
-            cell?.setup()
-            cell?.textFieldInput = { val in
-                self.userData.firstName = val[0]!
-                self.userData.lastName = val[1]!
-            }
-            return cell!
-        } else if indexPath.row == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.radioCell, for: indexPath) as? RadioBtnCell
-            cell?.callBackForOption = { val in
-                if val == 1 {
-                    self.userData.jobProfile = "Manager"
-                } else {
-                    self.userData.jobProfile = "Foreman"
-                }
-            }
-            return cell!
-        } else if  indexPath.row == 7 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.iDCell, for: indexPath) as? IDImageCell
-            cell?.delegate = self
-            cell?.pickImage()
-            return cell!
-        } else if indexPath.row == 8 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.btnCell, for: indexPath) as? ButtonCell
-            cell?.setup()
-            cell?.submitButton.addTarget(self, action: #selector(submitAction), for: .touchUpInside)
-            return cell!
+            return signUpVMobj?.configureNameCell(indexPath: indexPath) ?? UITableViewCell()
         } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
-            cell?.setup()
-            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-            cell?.textFieldInput = { val in
-                self.userData.email = val!
-            }
-            cell?.inputTextfield.keyboardType = .emailAddress
-            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
-            return cell!
+            return signUpVMobj?.configureEmailTFCell(indexPath: indexPath) ?? UITableViewCell()
+        } else if indexPath.row == 3 {
+            return signUpVMobj?.configureRadioCell(indexPath: indexPath) ?? UITableViewCell()
         } else if indexPath.row == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
-            cell?.setup()
-            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-            cell?.textFieldInput = { val in
-                self.userData.address = val!
-            }
-            cell?.inputTextfield.keyboardType = .default
-            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
-            return cell!
+            return signUpVMobj?.configureAddressCell(indexPath: indexPath) ?? UITableViewCell()
         } else if indexPath.row == 5 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
-            cell?.setup()
-            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-            cell?.textFieldInput = { val in
-                self.userData.age = val!
-            }
-            cell?.inputTextfield.keyboardType = .numberPad
-            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
-            return cell!
+            return signUpVMobj?.configureAgeCell(indexPath: indexPath) ?? UITableViewCell()
         } else if indexPath.row == 6 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
-            cell?.setup()
-            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-            cell?.textFieldInput = { val in
-                self.userData.experience = val!
-            }
-            cell?.inputTextfield.keyboardType = .numberPad
-            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
-            return cell!
+            return signUpVMobj?.configureExpCell(indexPath: indexPath) ?? UITableViewCell()
+        } else if  indexPath.row == 7 {
+            return signUpVMobj?.configureIDImageCell(indexPath: indexPath) ?? UITableViewCell()
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: Constants.tfCell, for: indexPath) as? TextfieldCell
-            cell?.setup()
-            let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-            cell?.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-            cell?.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-            cell?.headerLabel.text = Constants.placeholder[indexPath.row]
-            return cell!
+            return signUpVMobj?.configureSubmitBtnCell(indexPath: indexPath) ?? UITableViewCell()
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
