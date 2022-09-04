@@ -22,6 +22,11 @@ class MainVC: UIViewController {
         let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "FMSignUpVC") as? FMSignUpVC)!
         navigationController?.pushViewController(nextViewController, animated: true)
     }
+    @IBAction func loginAction(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "FMLoginVC") as? FMLoginVC)!
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
     func setupView() {
         signUpBtn.layer.cornerRadius = 15
         loginBtn.layer.cornerRadius = 15

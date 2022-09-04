@@ -21,4 +21,18 @@ class Utilities {
         }
         return topMostViewController!
     }
+    static func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+
+        let emailPred = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    static func isValid(_ name: String) -> Bool {
+        let regex = "[A-Za-z]{2,}"
+        let test = NSPredicate(format: "SELF MATCHES %@", regex)
+        let result = test.evaluate(with: name)
+        
+        return result
+    }
 }

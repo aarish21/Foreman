@@ -15,15 +15,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="414" height="54"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a Foreman Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2a-WE-tdE">
-                        <rect key="frame" x="20.5" y="5.5" width="373" height="43"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Up" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P2a-WE-tdE">
+                        <rect key="frame" x="0.0" y="5.5" width="414" height="43"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                         <color key="textColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="P2a-WE-tdE" firstAttribute="width" secondItem="jmi-3E-nfx" secondAttribute="width" multiplier="0.9" id="CMe-jz-rWe"/>
+                    <constraint firstItem="P2a-WE-tdE" firstAttribute="width" secondItem="jmi-3E-nfx" secondAttribute="width" id="CMe-jz-rWe"/>
                     <constraint firstItem="P2a-WE-tdE" firstAttribute="height" secondItem="jmi-3E-nfx" secondAttribute="height" multiplier="0.8" id="YSJ-LY-lyU"/>
                     <constraint firstItem="P2a-WE-tdE" firstAttribute="centerX" secondItem="jmi-3E-nfx" secondAttribute="centerX" id="fuQ-KV-4ny"/>
                     <constraint firstItem="P2a-WE-tdE" firstAttribute="centerY" secondItem="jmi-3E-nfx" secondAttribute="centerY" id="pxa-lf-bUu"/>

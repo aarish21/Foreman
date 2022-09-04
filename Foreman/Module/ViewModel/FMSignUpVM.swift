@@ -46,24 +46,57 @@ class FMSignUpVM {
         let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.nameCell, for: indexPath) as? NameTFCell ?? NameTFCell()
         cell.setup()
         cell.textFieldInput = { [self] val in
-            signUpVC?.userData.firstName = val[0]!
-            signUpVC?.userData.lastName = val[1]!
+            if !Utilities.isValid(cell.firstTF.text!) || !Utilities.isValid(cell.secondTF.text!) {
+                cell.errorTF.text = "Enter a vaild name"
+            } else {
+                cell.errorTF.text = ""
+                signUpVC?.userData.firstName = val[0]!
+                signUpVC?.userData.lastName = val[1]!
+            }
         }
         return cell
     }
     /// configure EmailTFCell
     /// - Parameter indexPath: selected indexPath
     /// - Returns: EmailTFCell
-    func configureEmailTFCell(indexPath: IndexPath) -> UITableViewCell {
+    func configureTFCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.tfCell,
                                                 for: indexPath) as? TextfieldCell ?? TextfieldCell()
         cell.setup()
         let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
         cell.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
         cell.textFieldInput = { val in
-            self.signUpVC?.userData.email = val!
+            if indexPath.row == 2 {
+                cell.inputTextfield.keyboardType = .emailAddress
+                if !Utilities.isValidEmail(cell.inputTextfield.text!) {
+                    cell.errorTF.text = "Enter a valid email"
+                } else {
+                    cell.errorTF.text = ""
+                    self.signUpVC?.userData.email = val!
+                }
+            }
+            if indexPath.row == 4 {
+                cell.textFieldInput = { val in
+                    self.signUpVC?.userData.address = val!
+                }
+                cell.inputTextfield.keyboardType = .default
+            }
+            if indexPath.row == 5 {
+                cell.textFieldInput = { val in
+                    self.signUpVC?.userData.age = val!
+                }
+                cell.inputTextfield.delegate = self.signUpVC
+                cell.inputTextfield.keyboardType = .numberPad
+            }
+            if indexPath.row == 6 {
+                cell.textFieldInput = { val in
+                    self.signUpVC?.userData.experience = val!
+                }
+                cell.inputTextfield.delegate = self.signUpVC
+                cell.inputTextfield.keyboardType = .numberPad
+            }
         }
-        cell.inputTextfield.keyboardType = .emailAddress
+        
         cell.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
         cell.headerLabel.text = Constants.placeholder[indexPath.row]
         return cell
@@ -83,57 +116,7 @@ class FMSignUpVM {
         }
         return cell
     }
-    /// configure AddressCell
-    /// - Parameter indexPath: selected indexPath
-    /// - Returns: AddressCell
-    func configureAddressCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.tfCell,
-                                                    for: indexPath) as? TextfieldCell ?? TextfieldCell()
-        cell.setup()
-        let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-        cell.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-        cell.textFieldInput = { val in
-            self.signUpVC?.userData.address = val!
-        }
-        cell.inputTextfield.keyboardType = .default
-        cell.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-        cell.headerLabel.text = Constants.placeholder[indexPath.row]
-        return cell
-    }
-    /// configure AgeCell
-    /// - Parameter indexPath: selected indexPath
-    /// - Returns: AgeCell
-    func configureAgeCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.tfCell,
-                                                    for: indexPath) as? TextfieldCell ?? TextfieldCell()
-        cell.setup()
-        let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-        cell.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-        cell.textFieldInput = { val in
-            self.signUpVC?.userData.age = val!
-        }
-        cell.inputTextfield.keyboardType = .numberPad
-        cell.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-        cell.headerLabel.text = Constants.placeholder[indexPath.row]
-        return cell
-    }
-    /// configure experienceCell
-    /// - Parameter indexPath: selected indexPath
-    /// - Returns: experienceCell
-    func configureExpCell(indexPath: IndexPath) -> UITableViewCell {
-        let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.tfCell,
-                                                    for: indexPath) as? TextfieldCell ?? TextfieldCell()
-        cell.setup()
-        let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-        cell.iconImageView.image = UIImage(systemName: Constants.imageName[indexPath.row], withConfiguration: small)
-        cell.textFieldInput = { val in
-            self.signUpVC?.userData.experience = val!
-        }
-        cell.inputTextfield.keyboardType = .numberPad
-        cell.inputTextfield.placeholder = Constants.placeholder[indexPath.row]
-        cell.headerLabel.text = Constants.placeholder[indexPath.row]
-        return cell
-    }
+   
     /// configure IDImageCell
     /// - Parameter indexPath: selected indexPath
     /// - Returns: IDImageCell
@@ -148,7 +131,7 @@ class FMSignUpVM {
     func configureSubmitBtnCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = signUpVC?.signUpTV.dequeueReusableCell(withIdentifier: Constants.btnCell, for: indexPath) as? ButtonCell ?? ButtonCell()
         cell.setup()
-        cell.submitButton.addTarget(self, action: #selector(signUpVC?.submitAction), for: .touchUpInside)
+        cell.submitButton.addTarget(self.signUpVC, action: #selector(signUpVC?.submitAction), for: .touchUpInside)
         return cell
     }
 }

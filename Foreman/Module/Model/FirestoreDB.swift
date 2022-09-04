@@ -19,10 +19,30 @@ class FirestoreDB {
                                     "date": signUpData.date,
                                     "jobProfile": signUpData.jobProfile]
         let ref = Database.database().reference().child("users").childByAutoId()
+        
         ref.setValue(value) { err, _ in
             if err != nil {
                 completion(err)
             }
         }
+    }
+    static func getData(email: String, password: String, completion: @escaping(DataSnapshot?) -> Void) {
+        Database.database().reference().child("foreman").child("email").observeSingleEvent(of: .value) { snap in
+            if snap.exists() {
+                snap.children.value(forKey: "email")
+               completion(snap)
+            } else {
+                completion(nil)
+            }
+            
+        }
+           
+//        ref.getData { err, snapshot in
+//            if err != nil {
+//                completion(nil, err)
+//            } else {
+//                completion(snapshot, nil)
+//            }
+//        }
     }
 }

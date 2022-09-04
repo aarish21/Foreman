@@ -16,8 +16,11 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OzL-TM-zgd">
-                        <rect key="frame" x="0.0" y="4.5" width="414" height="35"/>
+                        <rect key="frame" x="0.0" y="-3" width="414" height="50"/>
                         <color key="backgroundColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="CVl-yY-EuC"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -27,7 +30,6 @@
                 <constraints>
                     <constraint firstItem="OzL-TM-zgd" firstAttribute="width" secondItem="GbJ-P6-0IE" secondAttribute="width" id="PUA-5a-tce"/>
                     <constraint firstItem="OzL-TM-zgd" firstAttribute="centerY" secondItem="GbJ-P6-0IE" secondAttribute="centerY" id="o2c-Bn-Hgi"/>
-                    <constraint firstItem="OzL-TM-zgd" firstAttribute="height" secondItem="GbJ-P6-0IE" secondAttribute="height" multiplier="0.8" id="u0D-Jw-ACO"/>
                     <constraint firstItem="OzL-TM-zgd" firstAttribute="centerX" secondItem="GbJ-P6-0IE" secondAttribute="centerX" id="y9g-zv-WgA"/>
                 </constraints>
             </tableViewCellContentView>

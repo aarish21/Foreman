@@ -17,3 +17,8 @@ struct SignUpModel: Codable {
     var date: Int = 0
     var jobProfile: String = ""
 }
+
+struct Login: Codable {
+    var email: String = ""
+    var password: String = ""
+}
