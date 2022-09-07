@@ -22,3 +22,10 @@ struct Login: Codable {
     var email: String = ""
     var password: String = ""
 }
+
+struct UnitCellData: Codable {
+    var unit: String = ""
+    var employHours: String = ""
+    var equipment: [String] = []
+    var equipHours: [String] = []
+}

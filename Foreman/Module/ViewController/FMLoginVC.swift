@@ -24,21 +24,26 @@ class FMLoginVC: UIViewController {
     @objc func submitAction() {
         FirestoreDB.getData(email: self.foreman.email, password: self.foreman.password) { snapshot in
             
-            if snapshot?.value as? String == self.foreman.email {
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "ForemanVC") as? ForemanVC)!
-                self.navigationController?.pushViewController(nextViewController, animated: true)
-            } else {
-                self.alert.presentAlertWithTitle(title: "Wrong email or Password", message: "", options: "ok") {_ in}
-            }
+//            if snapshot?.value(forKey: "email") as? String == self.foreman.email {
+//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC)!
+//                self.navigationController?.pushViewController(nextViewController, animated: true)
+//            } else {
+//                self.alert.presentAlertWithTitle(title: "Wrong email or Password", message: "", options: "ok") {_ in}
+//            }
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC)!
+            self.navigationController?.pushViewController(nextViewController, animated: true)
 //            let value = snapshot?.value as? NSDictionary
 //            let email = value!["email"] as? String
 //            let password = value!["password"] as? String
-//            
-//            if self.foreman.email == email && self.foreman.password == password {
-//                
+//            print(email,password)
+//            if self.foreman.email == email {
+//                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//                let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "DashboardVC") as? DashboardVC)!
+//                self.navigationController?.pushViewController(nextViewController, animated: true)
 //            } else {
-//            
+//                self.alert.presentAlertWithTitle(title: "Wrong email or Password", message: "", options: "ok") {_ in}
 //            }
         }
         
@@ -61,9 +66,6 @@ extension FMLoginVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 100
-        }
         if indexPath.row == 3 {
             return 170
         }

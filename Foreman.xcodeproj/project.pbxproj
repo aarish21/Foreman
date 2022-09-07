@@ -12,6 +12,16 @@
 		6F25EF8A28B6C26500F54649 /* NameTFCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F25EF8928B6C26500F54649 /* NameTFCell.xib */; };
 		6F25EF8D28B6C8B100F54649 /* NameTFCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */; };
 		6F3E1D5328BCDB9C00620BF0 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */; };
+		6F49A43228C5BF4000173291 /* GreetingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43028C5BF4000173291 /* GreetingsCell.swift */; };
+		6F49A43328C5BF4000173291 /* GreetingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F49A43128C5BF4000173291 /* GreetingsCell.xib */; };
+		6F49A43528C5C2DB00173291 /* DashboardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43428C5C2DB00173291 /* DashboardVC.swift */; };
+		6F49A43728C5C3AA00173291 /* DashboardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43628C5C3AA00173291 /* DashboardVM.swift */; };
+		6F49A43B28C5CF3200173291 /* UnitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43928C5CF3200173291 /* UnitCell.swift */; };
+		6F49A43C28C5CF3200173291 /* UnitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F49A43A28C5CF3200173291 /* UnitCell.xib */; };
+		6F49A43E28C72FD900173291 /* AddUnitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43D28C72FD900173291 /* AddUnitVC.swift */; };
+		6F49A44028C72FF900173291 /* AddUnitVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A43F28C72FF900173291 /* AddUnitVM.swift */; };
+		6F49A44428C73CB200173291 /* DatePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49A44228C73CB200173291 /* DatePickerCell.swift */; };
+		6F49A44528C73CB200173291 /* DatePickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F49A44328C73CB200173291 /* DatePickerCell.xib */; };
 		6F6EAAC528BDDD1E00D0F3CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6F6EAAC428BDDD1E00D0F3CE /* GoogleService-Info.plist */; };
 		6F6EAAC728BDE85B00D0F3CE /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6EAAC628BDE85B00D0F3CE /* SignUpModel.swift */; };
 		6F6EAAC928BDE9F600D0F3CE /* FirestoreDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F6EAAC828BDE9F600D0F3CE /* FirestoreDB.swift */; };
@@ -36,7 +46,6 @@
 		6FE8BE8F28BF457D003B2DFC /* FMLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE8BE8E28BF457D003B2DFC /* FMLoginVC.swift */; };
 		6FE8BE9128BF4DE1003B2DFC /* FMLoginVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE8BE9028BF4DE1003B2DFC /* FMLoginVM.swift */; };
 		6FE8BE9328C09CC2003B2DFC /* ReusableAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE8BE9228C09CC2003B2DFC /* ReusableAlert.swift */; };
-		6FE8BE9528C0B430003B2DFC /* ForemanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE8BE9428C0B430003B2DFC /* ForemanVC.swift */; };
 		6FF18BEE28B4A2E3009814A9 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6FF18BED28B4A2E3009814A9 /* ButtonCell.xib */; };
 		6FF18BF028B4A3B8009814A9 /* ButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF18BEF28B4A3B8009814A9 /* ButtonCell.swift */; };
 		6FF18BF228B4AFDF009814A9 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF18BF128B4AFDF009814A9 /* ImagePicker.swift */; };
@@ -71,6 +80,16 @@
 		6F25EF8928B6C26500F54649 /* NameTFCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NameTFCell.xib; sourceTree = "<group>"; };
 		6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTFCell.swift; sourceTree = "<group>"; };
 		6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		6F49A43028C5BF4000173291 /* GreetingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreetingsCell.swift; sourceTree = "<group>"; };
+		6F49A43128C5BF4000173291 /* GreetingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GreetingsCell.xib; sourceTree = "<group>"; };
+		6F49A43428C5C2DB00173291 /* DashboardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVC.swift; sourceTree = "<group>"; };
+		6F49A43628C5C3AA00173291 /* DashboardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardVM.swift; sourceTree = "<group>"; };
+		6F49A43928C5CF3200173291 /* UnitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCell.swift; sourceTree = "<group>"; };
+		6F49A43A28C5CF3200173291 /* UnitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UnitCell.xib; sourceTree = "<group>"; };
+		6F49A43D28C72FD900173291 /* AddUnitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUnitVC.swift; sourceTree = "<group>"; };
+		6F49A43F28C72FF900173291 /* AddUnitVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUnitVM.swift; sourceTree = "<group>"; };
+		6F49A44228C73CB200173291 /* DatePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerCell.swift; sourceTree = "<group>"; };
+		6F49A44328C73CB200173291 /* DatePickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerCell.xib; sourceTree = "<group>"; };
 		6F6EAAC428BDDD1E00D0F3CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6F6EAAC628BDE85B00D0F3CE /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		6F6EAAC828BDE9F600D0F3CE /* FirestoreDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreDB.swift; sourceTree = "<group>"; };
@@ -99,7 +118,6 @@
 		6FE8BE8E28BF457D003B2DFC /* FMLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMLoginVC.swift; sourceTree = "<group>"; };
 		6FE8BE9028BF4DE1003B2DFC /* FMLoginVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMLoginVM.swift; sourceTree = "<group>"; };
 		6FE8BE9228C09CC2003B2DFC /* ReusableAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReusableAlert.swift; sourceTree = "<group>"; };
-		6FE8BE9428C0B430003B2DFC /* ForemanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForemanVC.swift; path = Foreman/Module/ViewController/ForemanVC.swift; sourceTree = SOURCE_ROOT; };
 		6FF18BED28B4A2E3009814A9 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		6FF18BEF28B4A3B8009814A9 /* ButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCell.swift; sourceTree = "<group>"; };
 		6FF18BF128B4AFDF009814A9 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
@@ -156,6 +174,33 @@
 				6F25EF8C28B6C8B100F54649 /* NameTFCell.swift */,
 			);
 			path = FirstAndLastName;
+			sourceTree = "<group>";
+		};
+		6F49A42F28C5BF1300173291 /* Greetings */ = {
+			isa = PBXGroup;
+			children = (
+				6F49A43028C5BF4000173291 /* GreetingsCell.swift */,
+				6F49A43128C5BF4000173291 /* GreetingsCell.xib */,
+			);
+			path = Greetings;
+			sourceTree = "<group>";
+		};
+		6F49A43828C5CF0500173291 /* Unit */ = {
+			isa = PBXGroup;
+			children = (
+				6F49A43928C5CF3200173291 /* UnitCell.swift */,
+				6F49A43A28C5CF3200173291 /* UnitCell.xib */,
+			);
+			path = Unit;
+			sourceTree = "<group>";
+		};
+		6F49A44128C73C9000173291 /* DatePicker */ = {
+			isa = PBXGroup;
+			children = (
+				6F49A44228C73CB200173291 /* DatePickerCell.swift */,
+				6F49A44328C73CB200173291 /* DatePickerCell.xib */,
+			);
+			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		6FC133F428BD59E800E90F2B /* Heading */ = {
@@ -226,6 +271,8 @@
 			children = (
 				6FD9659E28B4894200D04437 /* FMSignUpVM.swift */,
 				6FE8BE9028BF4DE1003B2DFC /* FMLoginVM.swift */,
+				6F49A43628C5C3AA00173291 /* DashboardVM.swift */,
+				6F49A43F28C72FF900173291 /* AddUnitVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -233,10 +280,11 @@
 		6FD9659328B486CA00D04437 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6FE8BE9428C0B430003B2DFC /* ForemanVC.swift */,
 				6FD9659C28B488E100D04437 /* FMSignUpVC.swift */,
 				6FE8BE8E28BF457D003B2DFC /* FMLoginVC.swift */,
 				6F3E1D5228BCDB9C00620BF0 /* MainVC.swift */,
+				6F49A43428C5C2DB00173291 /* DashboardVC.swift */,
+				6F49A43D28C72FD900173291 /* AddUnitVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -301,12 +349,15 @@
 		6FD965A328B4982800D04437 /* CustomCell */ = {
 			isa = PBXGroup;
 			children = (
+				6F49A44128C73C9000173291 /* DatePicker */,
 				6F25EF8B28B6C88B00F54649 /* FirstAndLastName */,
 				6FF18BF728B4C155009814A9 /* TextField */,
 				6FF18BF828B4C197009814A9 /* IDImage */,
 				6FF18BF928B4C1A2009814A9 /* Button */,
 				6FC133F428BD59E800E90F2B /* Heading */,
 				6FE8BE8B28BEA288003B2DFC /* RadioBtn */,
+				6F49A43828C5CF0500173291 /* Unit */,
+				6F49A42F28C5BF1300173291 /* Greetings */,
 			);
 			path = CustomCell;
 			sourceTree = "<group>";
@@ -481,13 +532,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE8BE8A28BEA282003B2DFC /* RadioBtnCell.xib in Resources */,
+				6F49A43C28C5CF3200173291 /* UnitCell.xib in Resources */,
 				6FC133F628BD59F800E90F2B /* HeadingCell.xib in Resources */,
+				6F49A43328C5BF4000173291 /* GreetingsCell.xib in Resources */,
 				6FD9656F28B4153300D04437 /* LaunchScreen.storyboard in Resources */,
 				6FD9656C28B4153300D04437 /* Assets.xcassets in Resources */,
 				6FF18BF428B4B069009814A9 /* IDImageCell.xib in Resources */,
 				6FF18BEE28B4A2E3009814A9 /* ButtonCell.xib in Resources */,
 				6F6EAAC528BDDD1E00D0F3CE /* GoogleService-Info.plist in Resources */,
 				6FD9656A28B4153200D04437 /* Main.storyboard in Resources */,
+				6F49A44528C73CB200173291 /* DatePickerCell.xib in Resources */,
 				6F25EF8A28B6C26500F54649 /* NameTFCell.xib in Resources */,
 				6FD965A228B496CA00D04437 /* TextfieldCell.xib in Resources */,
 			);
@@ -635,13 +689,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FD9659F28B4894200D04437 /* FMSignUpVM.swift in Sources */,
+				6F49A43B28C5CF3200173291 /* UnitCell.swift in Sources */,
+				6F49A43528C5C2DB00173291 /* DashboardVC.swift in Sources */,
 				6F25EF8528B6B87200F54649 /* ExtensionTextfield.swift in Sources */,
 				6FD9656328B4153200D04437 /* AppDelegate.swift in Sources */,
+				6F49A44428C73CB200173291 /* DatePickerCell.swift in Sources */,
 				6FD9659D28B488E100D04437 /* FMSignUpVC.swift in Sources */,
+				6F49A43728C5C3AA00173291 /* DashboardVM.swift in Sources */,
 				6FC133F328BD59DE00E90F2B /* HeadingCell.swift in Sources */,
 				6F6EAAC928BDE9F600D0F3CE /* FirestoreDB.swift in Sources */,
 				6FD9656528B4153200D04437 /* SceneDelegate.swift in Sources */,
+				6F49A44028C72FF900173291 /* AddUnitVM.swift in Sources */,
 				6FE8BE8D28BEA650003B2DFC /* RadioBtnCell.swift in Sources */,
+				6F49A43228C5BF4000173291 /* GreetingsCell.swift in Sources */,
 				6FD965A528B49DC900D04437 /* TextfieldCell.swift in Sources */,
 				6FE8BE9328C09CC2003B2DFC /* ReusableAlert.swift in Sources */,
 				6FF18BF228B4AFDF009814A9 /* ImagePicker.swift in Sources */,
@@ -651,9 +711,9 @@
 				6FE8BE8F28BF457D003B2DFC /* FMLoginVC.swift in Sources */,
 				6FF18BF628B4B0F3009814A9 /* IDImageCell.swift in Sources */,
 				6F6EAAC728BDE85B00D0F3CE /* SignUpModel.swift in Sources */,
+				6F49A43E28C72FD900173291 /* AddUnitVC.swift in Sources */,
 				6F25EF8D28B6C8B100F54649 /* NameTFCell.swift in Sources */,
 				6F3E1D5328BCDB9C00620BF0 /* MainVC.swift in Sources */,
-				6FE8BE9528C0B430003B2DFC /* ForemanVC.swift in Sources */,
 				6FE8BE9128BF4DE1003B2DFC /* FMLoginVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

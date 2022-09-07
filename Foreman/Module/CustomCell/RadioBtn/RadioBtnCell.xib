@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                             <constraint firstAttribute="height" constant="25" id="kfE-h7-aG1"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
-                        <color key="textColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" name="fontColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MkW-s8-Fv1">
@@ -31,7 +32,7 @@
                             <constraint firstAttribute="width" constant="30" id="Sq4-xL-7hH"/>
                             <constraint firstAttribute="height" constant="30" id="hci-E6-Dxa"/>
                         </constraints>
-                        <color key="tintColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" name="fontColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal">
                             <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
@@ -48,7 +49,7 @@
                             <constraint firstAttribute="width" constant="30" id="dhG-Zs-jWs"/>
                             <constraint firstAttribute="height" constant="30" id="oms-4q-70V"/>
                         </constraints>
-                        <color key="tintColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" name="fontColor"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal">
                             <imageReference key="image" image="circle" catalog="system" symbolScale="large"/>
@@ -62,13 +63,13 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manager" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42R-K6-LvM">
                         <rect key="frame" x="50" y="44" width="354" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="textColor" name="fontColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Foreman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5E-gD-iDQ">
                         <rect key="frame" x="50" y="78" width="354" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="fontColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -102,5 +103,8 @@
     <resources>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.inset.filled" catalog="system" width="128" height="121"/>
+        <namedColor name="fontColor">
+            <color red="0.054901960784313725" green="0.14509803921568629" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

@@ -27,15 +27,12 @@ class FirestoreDB {
         }
     }
     static func getData(email: String, password: String, completion: @escaping(DataSnapshot?) -> Void) {
-        Database.database().reference().child("foreman").child("email").observeSingleEvent(of: .value) { snap in
-            if snap.exists() {
-                snap.children.value(forKey: "email")
-               completion(snap)
-            } else {
-                completion(nil)
+        Database.database().reference().child("users").getData(completion: { err, snapshot in
+            if err != nil {
+                print(err!.localizedDescription)
             }
-            
-        }
+            completion(snapshot)
+        })
            
 //        ref.getData { err, snapshot in
 //            if err != nil {
