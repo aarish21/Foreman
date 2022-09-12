@@ -63,9 +63,6 @@
                         <buttonConfiguration key="configuration" style="plain" title="Add Employee">
                             <fontDescription key="titleFontDescription" type="system" weight="light" pointSize="7"/>
                         </buttonConfiguration>
-                        <connections>
-                            <action selector="addEmpAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="9xr-te-XVw"/>
-                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8nU-zw-UVN">
                         <rect key="frame" x="232" y="31.5" width="85" height="25"/>
@@ -98,7 +95,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="addEmp" destination="Hv8-uG-qj5" id="viU-cf-MPg"/>
+                <outlet property="addEmp" destination="Hv8-uG-qj5" id="3KI-TS-2LK"/>
                 <outlet property="addEquip" destination="8nU-zw-UVN" id="cC7-yR-erm"/>
                 <outlet property="employHrsLbl" destination="O0Q-v9-Hc4" id="sPo-oD-y2N"/>
                 <outlet property="unitLbl" destination="rjU-XV-2Ci" id="0wN-qT-csC"/>
@@ -112,7 +109,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Color">
-            <color red="0.054901960784313725" green="0.14509803921568626" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.054999999701976776" green="0.14499999582767487" blue="0.15700000524520874" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>

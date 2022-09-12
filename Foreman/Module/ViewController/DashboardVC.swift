@@ -61,7 +61,15 @@ class DashboardVC: UIViewController {
         menu?.presentationStyle = .menuSlideIn
         present(menu!, animated: true, completion: nil)
     }
-    
+    func deleteData() {
+        do{
+            let data = try JSONEncoder().encode(unitData)
+            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
+
+        } catch {
+            print("Unable to save data.")
+        }
+    }
 }
 
 extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
@@ -73,8 +81,9 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             return dashboardVM?.configureGreetingCell(indexPath: indexPath) ?? UITableViewCell()
         }
-        
-        return dashboardVM?.configureUnitCell(indexPath: indexPath) ?? UITableViewCell()
+        let cell = dashboardVM?.configureUnitCell(indexPath: indexPath) as? UnitCell ?? UnitCell()
+        cell.addEmp.addTarget(self, action: #selector(addEmployAction(sender:)), for: .touchUpInside)
+        return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -91,9 +100,22 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
           self.dashboardTV.deleteRows(at: [indexPath], with: .automatic)
        
          
-//          unitData.remove(atOffsets: indexPath.)
+          unitData.remove(at: indexPath.row-1)
+          self.deleteData()
           self.dashboardTV.reloadData()
       }
     }
     
+    @objc func addEmployAction(sender: UIButton) {
+        let buttonTag = sender.tag
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
+        nextViewController.item = unitData[sender.tag-1]
+        nextViewController.isFromDashboardCell = true
+        let navController = UINavigationController(rootViewController: nextViewController)
+        navController.navigationBar.tintColor = UIColor(named: "fontColor")
+        self.present(navController, animated: true, completion: nil)
+        
+        print(buttonTag)
+    }
 }
