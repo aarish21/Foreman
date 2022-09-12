@@ -37,6 +37,7 @@
                     <constraint firstItem="OzL-TM-zgd" firstAttribute="centerX" secondItem="GbJ-P6-0IE" secondAttribute="centerX" id="y9g-zv-WgA"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="submitButton" destination="OzL-TM-zgd" id="HI0-80-Hg8"/>
             </connections>

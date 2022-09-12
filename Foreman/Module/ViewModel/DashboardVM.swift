@@ -13,6 +13,7 @@ class DashboardVM {
         self.dashboardVC = dashboard
     }
     func setupTableView() {
+        
         dashboardVC?.dashboardTV.delegate = dashboardVC
         dashboardVC?.dashboardTV.dataSource = dashboardVC
         dashboardVC?.dashboardTV.register(UINib(nibName: Constants.greetingsCell, bundle: .main),
@@ -30,6 +31,8 @@ class DashboardVM {
         let cell = dashboardVC?.dashboardTV.dequeueReusableCell(withIdentifier: Constants.unitCell,
                                                     for: indexPath) as? UnitCell ?? UnitCell()
         cell.setup(data: dashboardVC?.unitData ?? [], indexPath: indexPath)
+        
+//        cell.addEmp.addTarget(dashboardVC, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
         return cell
     }
 }

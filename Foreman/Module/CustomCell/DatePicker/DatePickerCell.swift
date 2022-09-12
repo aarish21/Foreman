@@ -13,6 +13,8 @@ class DatePickerCell: UITableViewCell {
     @IBOutlet weak var startTime: UIDatePicker!
     
     @IBOutlet weak var totalTIme: UIDatePicker!
+    var start: ((_ value: String?) -> Void)?
+    var end: ((_ value: String?) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -29,9 +31,8 @@ class DatePickerCell: UITableViewCell {
         var components = DateComponents()
         components.calendar = calendar
         components.minute = 30
-        let diff = Calendar.current.dateComponents([.hour], from: startTime.date, to: endTime.date).date
         let maxDate = calendar.date(byAdding: components, to: currentDate)!
-        startTime.maximumDate = maxDate
+        startTime.maximumDate = Date()
         endTime.maximumDate = maxDate
        
         startTime.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
@@ -42,11 +43,15 @@ class DatePickerCell: UITableViewCell {
         
     }
     @objc func startTimeChanged() {
-        let formatter = RelativeDateTimeFormatter()
-        formatter.unitsStyle = .full
-        let date = Calendar.current.dateComponents([.day], from: startTime.date, to: endTime.date).hour
-        let relativeDate = formatter.calendar.dateComponents([.minute,.hour,.second], from: startTime.date, to: endTime.date).hour
-        print(relativeDate)
+//        let formatter = RelativeDateTimeFormatter()
+//        formatter.unitsStyle = .full
+//        let date = Calendar.current.dateComponents([.day], from: startTime.date, to: endTime.date).hour
+//        let relativeDate = formatter.calendar.dateComponents([.minute,.hour,.second], from: startTime.date, to: endTime.date).hour
+//        let relativeDate = formatter.localizedString(for: startTime.date, relativeTo: endTime.date)
+//        print(relativeDate)
+        
+        start!(String(startTime.date.timeIntervalSince1970))
+        end!(String(endTime.date.timeIntervalSince1970))
     }
     
     

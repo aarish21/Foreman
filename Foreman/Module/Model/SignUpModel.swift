@@ -25,7 +25,12 @@ struct Login: Codable {
 
 struct UnitCellData: Codable {
     var unit: String = ""
-    var employHours: String = ""
+    var employHours: [EmployHours] = []
     var equipment: [String] = []
-    var equipHours: [String] = []
+}
+
+struct EmployHours: Codable {
+    var startTime: String = ""
+    var endTime: String = ""
+    var entryTime: String = ""
 }

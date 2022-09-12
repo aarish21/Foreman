@@ -30,6 +30,7 @@
                     <constraint firstItem="P2a-WE-tdE" firstAttribute="centerY" secondItem="jmi-3E-nfx" secondAttribute="centerY" id="pxa-lf-bUu"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="headingLbl" destination="P2a-WE-tdE" id="jIH-Ws-XTS"/>
             </connections>

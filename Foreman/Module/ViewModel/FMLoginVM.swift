@@ -34,7 +34,7 @@ class FMLoginVM {
                                                 for: indexPath) as? TextfieldCell ?? TextfieldCell()
         cell.setup()
         let small = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .small)
-        cell.iconImageView.image = UIImage(systemName: "envelope", withConfiguration: small)
+        cell.iconImageView.image = UIImage(systemName: "envelope.circle", withConfiguration: small)
         if indexPath.row == 1 {
             cell.textFieldInput = { val in
                 self.loginVC?.foreman.email = val!

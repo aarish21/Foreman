@@ -19,11 +19,11 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ikK-ZQ-bK1">
                                 <rect key="frame" x="20" y="50" width="374" height="806"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="ikK-ZQ-bK1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-40" id="5po-2F-k1p"/>
                             <constraint firstItem="ikK-ZQ-bK1" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="A5r-jM-UwC"/>
@@ -207,6 +207,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxB-ME-XNH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4577" y="-193"/>
+        </scene>
+        <!--Side MenuVC-->
+        <scene sceneID="APE-G4-3Fg">
+            <objects>
+                <viewController restorationIdentifier="SideMenuVC" storyboardIdentifier="SideMenuVC" id="DHf-lr-BFC" customClass="SideMenuVC" customModule="Foreman" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FMk-dI-zXh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-gM-6Tb">
+                                <rect key="frame" x="20.5" y="2.5" width="373" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="bBs-Cc-qV2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cb6-gM-6Tb" firstAttribute="centerY" secondItem="bBs-Cc-qV2" secondAttribute="centerY" id="QiI-jy-ad1"/>
+                            <constraint firstItem="cb6-gM-6Tb" firstAttribute="height" secondItem="FMk-dI-zXh" secondAttribute="height" id="ZyJ-mK-FzF"/>
+                            <constraint firstItem="cb6-gM-6Tb" firstAttribute="width" secondItem="FMk-dI-zXh" secondAttribute="width" multiplier="0.9" id="x38-ZB-pM0"/>
+                            <constraint firstItem="cb6-gM-6Tb" firstAttribute="centerX" secondItem="bBs-Cc-qV2" secondAttribute="centerX" id="zvl-we-fhs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ntg-Y7-onN"/>
+                    <connections>
+                        <outlet property="sideMenuTV" destination="cb6-gM-6Tb" id="klp-bP-pbn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="siR-Bs-H9k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6900.0000000000009" y="130.58035714285714"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="d7h-lZ-Smo">
+            <objects>
+                <navigationController restorationIdentifier="LeftMenu" storyboardIdentifier="LeftMenu" toolbarHidden="NO" id="thn-eN-3Fw" customClass="SideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vr4-D5-sPa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="DHf-lr-BFC" kind="relationship" relationship="rootViewController" id="XNT-2I-dyO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oEm-Ty-Z6u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5989.8550724637689" y="130.58035714285714"/>
         </scene>
     </scenes>
     <resources>

@@ -48,6 +48,13 @@ class AddUnitVM {
         cell.iconImageView.image = UIImage(systemName: "briefcase.circle.fill", withConfiguration: small)
         cell.inputTextfield.placeholder = "Unit"
         cell.headerLabel.text = "Unit"
+        cell.textFieldInput = { val in
+            self.addUnitVC?.item.unit = val!
+        }
+        if addUnitVC?.isFromDashboardCell == true {
+            cell.isUserInteractionEnabled = false
+        }
+        cell.inputTextfield.delegate = self.addUnitVC
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         return cell
     }
@@ -55,6 +62,13 @@ class AddUnitVM {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
                                                 for: indexPath) as? DatePickerCell ?? DatePickerCell()
         cell.setup()
+        cell.start = { val in
+            self.addUnitVC?.empHrs.startTime = val!
+        }
+        cell.end = { val in
+            self.addUnitVC?.empHrs.endTime = val!
+        }
+        self.addUnitVC?.empHrs.entryTime = String(Date().timeIntervalSince1970)
         return cell
     }
     func configureHeadingCell(indexPath: IndexPath) -> UITableViewCell {

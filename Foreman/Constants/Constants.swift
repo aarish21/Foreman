@@ -19,6 +19,8 @@ struct Constants {
     static let greetingsCell = "GreetingsCell"
     static let unitCell = "UnitCell"
     static let datePickerCell = "DatePickerCell"
-    static let imageName = ["", "", "envelope", "", "house", "calendar", "doc.append"]
+    static let imageName = ["", "", "envelope.circle.fill", "", "house.circle.fill", "calendar.circle.fill", "doc.append"]
     static let placeholder = ["", "", "Email*", "", "Address*", "Age*", "Experience in Years*"]
+    
+    static let saveUnitData = FileManager.documentsDirectory.appendingPathComponent("saveUnitData")
 }

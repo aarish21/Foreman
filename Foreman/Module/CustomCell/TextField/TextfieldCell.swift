@@ -21,7 +21,7 @@ class TextfieldCell: UITableViewCell, UITextFieldDelegate {
         inputTextfield.delegate = self
         outerView.layer.borderWidth = 2
         outerView.layer.cornerRadius = 15
-        outerView.layer.borderColor = .init(red: 233/255, green: 236/255, blue: 242/255, alpha: 1)
+        outerView.layer.borderColor = UIColor(named: "myColor")?.cgColor
         inputTextfield.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
    

@@ -46,11 +46,13 @@ PODS:
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
   - PromisesObjC (2.1.1)
+  - SideMenu (6.5.0)
   - SwiftLint (0.48.0)
 
 DEPENDENCIES:
   - FirebaseAuth
   - FirebaseDatabase
+  - SideMenu
   - SwiftLint
 
 SPEC REPOS:
@@ -66,6 +68,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SideMenu
     - SwiftLint
 
 SPEC CHECKSUMS:
@@ -80,8 +83,9 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  SideMenu: f583187d21c5b1dd04c72002be544b555a2627a2
   SwiftLint: 284cea64b6187c5d6bd83e9a548a64104d546447
 
-PODFILE CHECKSUM: 706c07ba38b9df0e49b55d7471d654f23f6833d4
+PODFILE CHECKSUM: 4847ae92305aef984b4c96afc38ba79bf852956a
 
 COCOAPODS: 1.11.3

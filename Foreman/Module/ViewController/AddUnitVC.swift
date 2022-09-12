@@ -10,25 +10,49 @@ import UIKit
 class AddUnitVC: UIViewController {
     @IBOutlet weak var addUnitTV: UITableView!
     var addUnitVM: AddUnitVM?
-    var numberOfRows = 5
+    var unitData: [UnitCellData] = []
+    var numberOfRows = 4
+    var isFromDashboardCell = false
+    var item = UnitCellData()
+    var employData: [EmployHours] = []
+    var empHrs = EmployHours()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addUnitVM = AddUnitVM(addUnitVC: self)
+        
         addUnitVM?.setupTV()
         let button1 = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addUnit))
         self.navigationItem.rightBarButtonItem  = button1
+        let button2 = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneAction))
+        self.navigationItem.leftBarButtonItem  = button2
         // Do any additional setup after loading the view.
     }
+    @objc func doneAction() {
+        item.employHours.append(empHrs)
+        unitData.append(item)
+        print(unitData)
+        
+        do{
+            let data = try JSONEncoder().encode(unitData)
+            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
 
+        } catch {
+            print("Unable to save data.")
+        }
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     @objc func addUnit() {
         numberOfRows+=1
+//        let item = EmployHours(startTime: <#T##String#>, endTime: <#T##String#>, entryTime: <#T##String#>)
         addUnitTV.reloadData()
     }
 }
 
-extension AddUnitVC: UITableViewDelegate, UITableViewDataSource {
+extension AddUnitVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.numberOfRows
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -36,6 +60,7 @@ extension AddUnitVC: UITableViewDelegate, UITableViewDataSource {
             return addUnitVM?.configureGreetingCell(indexPath: indexPath) ?? UITableViewCell()
         }
         if indexPath.row == 1 {
+           
             return addUnitVM?.configureTFCell(indexPath: indexPath) ?? UITableViewCell()
         }
         if indexPath.row == 2 {
@@ -69,8 +94,22 @@ extension AddUnitVC: UITableViewDelegate, UITableViewDataSource {
         print("Deleted")
 
         self.numberOfRows-=1
+          
         self.addUnitTV.deleteRows(at: [indexPath], with: .automatic)
       }
     }
     
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let aSet = NSCharacterSet(charactersIn: "0123456789").inverted
+        let compSepByCharInSet = string.components(separatedBy: aSet)
+        let numberFiltered = compSepByCharInSet.joined(separator: "")
+        return string == numberFiltered
+    }
+    
+}
+extension FileManager {
+    static var documentsDirectory: URL {
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        return paths[0]
+    }
 }

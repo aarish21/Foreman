@@ -41,6 +41,7 @@
                     <constraint firstItem="PrE-3g-IYw" firstAttribute="top" secondItem="tK5-UL-BT9" secondAttribute="bottom" constant="5" id="iNV-38-ggY"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="idImage" destination="PrE-3g-IYw" id="Mtd-Oj-AZt"/>
             </connections>

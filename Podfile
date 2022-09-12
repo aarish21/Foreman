@@ -9,6 +9,7 @@ target 'Foreman' do
 pod 'SwiftLint'
 pod 'FirebaseAuth'
 pod 'FirebaseDatabase'
+pod 'SideMenu'
   target 'ForemanTests' do
     inherit! :search_paths
     # Pods for testing
