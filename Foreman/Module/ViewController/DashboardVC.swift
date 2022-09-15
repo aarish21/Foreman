@@ -42,7 +42,7 @@ class DashboardVC: UIViewController {
     @objc func addUnit() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
-//        nextViewController.unitData = self.unitData
+        nextViewController.unitData = self.unitData
         nextViewController.modalPresentationStyle = .pageSheet
         let navController = UINavigationController(rootViewController: nextViewController)
         navController.navigationBar.tintColor = UIColor(named: "fontColor")
@@ -103,6 +103,7 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
 
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
+            nextViewController.unitData = self.unitData
             nextViewController.unitCellItem = unitData[indexPath.row-1]
             nextViewController.fromIndex = indexPath.row-1
             nextViewController.isFromDashboardCell = true

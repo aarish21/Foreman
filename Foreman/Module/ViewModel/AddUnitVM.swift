@@ -68,14 +68,7 @@ class AddUnitVM {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
                                                 for: indexPath) as? DatePickerCell ?? DatePickerCell()
         cell.setup(indexPath: indexPath, data: self.addUnitVC?.unitCellItem.employHours ?? [])
-        
-        cell.start = { val in
-            self.addUnitVC?.empHrs.startTime = val.0!
-            self.addUnitVC?.empHrs.endTime = val.1!
-            self.addUnitVC?.datePickerIndex = indexPath.row
-        }
-       
-        self.addUnitVC?.empHrs.entryTime = String(Date().timeIntervalSince1970)
+
         return cell
     }
     func configureHeadingCell(indexPath: IndexPath) -> UITableViewCell {

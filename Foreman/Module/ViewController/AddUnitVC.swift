@@ -12,47 +12,43 @@ class AddUnitVC: UIViewController {
     var addUnitVM: AddUnitVM?
     var isFromDashboardCell = false
     var unitCellItem = UnitCellData()
+    var unitData: [UnitCellData] = []
     var employData: [EmployHours] = []
-    var empHrs = EmployHours() {
-        didSet {
-//            item.employHours[datePickerIndex-3].startTime = empHrs.startTime
-//            item.employHours[datePickerIndex].startTime = empHrs.endTime
-//            addUnitTV.reloadData()
-        }
-    }
     var fromIndex = 0
     var datePickerIndex = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addUnitVM = AddUnitVM(addUnitVC: self)
-        
+    
         addUnitVM?.setupTV()
         let button2 = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneAction))
         let button1 = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addUnit))
         self.navigationItem.rightBarButtonItems  = [button2, button1]
         // Do any additional setup after loading the view.
+        print(unitData)
     }
+    
     @objc func doneAction() {
         for index in 0..<unitCellItem.employHours.count {
-            let indexPath = IndexPath(row: index, section: 0)
-            let cell = addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
-                                                     for: indexPath) as? DatePickerCell ?? DatePickerCell()
-//            unitCellItem.employHours[indexPath.row] = EmployHours(startTime: "\(cell.startTime.date.timeIntervalSince1970)",
-//                                                          endTime: "\(cell.endTime.date.timeIntervalSince1970)",
-//                                                          entryTime: "\(Date().timeIntervalSince1970)")
+            let indexPath = IndexPath(row: index+3, section: 0)
+            let cell: DatePickerCell = (addUnitTV.cellForRow(at: indexPath) as? DatePickerCell)!
+            unitCellItem.employHours[index] = EmployHours(startTime: "\(cell.startTime.date.timeIntervalSince1970)",
+                                                          endTime: "\(cell.endTime.date.timeIntervalSince1970)",
+                                                          entryTime: "\(Date().timeIntervalSince1970)")
             print(cell)
         }
       
-//        if !isFromDashboardCell {
-//            unitCellItem.employHours.append(empHrs)
-//            unitData.append(item)
-//            print(unitData)
-//        } else {
-//            unitData[fromIndex] = unitCellItem
-//        }
+        if !isFromDashboardCell {
+           
+            unitData.append(unitCellItem)
+            print(unitData)
+        } else {
+            unitData[fromIndex] = unitCellItem
+        }
 
         do {
-            let data = try JSONEncoder().encode([unitCellItem])
+            let data = try JSONEncoder().encode(unitData)
             try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
         } catch {
             print("Unable to save data.")
@@ -63,8 +59,8 @@ class AddUnitVC: UIViewController {
     }
     @objc func addUnit() {
         
-        let addEmployHours = EmployHours(startTime: "0",
-                                         endTime: "0",
+        let addEmployHours = EmployHours(startTime: "\(Date().timeIntervalSince1970)",
+                                         endTime: "\(Date().timeIntervalSince1970)",
                                          entryTime: "\(Date().timeIntervalSince1970)")
         unitCellItem.employHours.append(addEmployHours)
         addUnitTV.reloadData()

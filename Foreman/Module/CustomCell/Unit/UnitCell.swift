@@ -29,16 +29,24 @@ class UnitCell: UITableViewCell {
     func setup(data: [UnitCellData], indexPath: IndexPath) {
         
         unitLbl.text = "Unit \(data[indexPath.row-1].unit)"
-        let startT = data[indexPath.row-1].employHours[0].startTime
-        let endT = data[indexPath.row-1].employHours[0].endTime
-        let num1 = NumberFormatter().number(from: startT)?.doubleValue
-        let num2 = NumberFormatter().number(from: endT)?.doubleValue
-        var time = 0
-        if let start = num1, let end = num2 {
-            time = Int(end-start)
+        
+        // calculating total hours for each cell in dashboardVC
+        var totalHours = 0
+        for index in 0..<data[indexPath.row-1].employHours.count {
+            let startT = data[indexPath.row-1].employHours[index].startTime
+            let endT = data[indexPath.row-1].employHours[index].endTime
+            let num1 = NumberFormatter().number(from: startT)?.doubleValue
+            let num2 = NumberFormatter().number(from: endT)?.doubleValue
+        
+            if let start = num1, let end = num2 {
+                totalHours += Int(end-start)
+            }
+         
         }
-        let (hours, min) = Utilities.secondsToHoursMinutesSeconds(time)
+       
+        let (hours, min) = Utilities.secondsToHoursMinutesSeconds(totalHours)
         employHrsLbl.text = "Employee hours: \(hours) hr \(min) min "
+        
 //        for iter in 0..<data[indexPath.row-1].equipment.count {
 //            let element = "\(data[indexPath.row-1].equipment[iter]): \(data[indexPath.row-1].equipHours[iter]) Hrs"
 //               let labelNum = UILabel()
