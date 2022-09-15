@@ -22,7 +22,7 @@ class FMLoginVC: UIViewController {
     }
     
     @objc func submitAction() {
-        FirestoreDB.getData(email: self.foreman.email, password: self.foreman.password) { snapshot in
+        FirestoreDB.getData(email: self.foreman.email, password: self.foreman.password) { _ in
             
 //            if snapshot?.value(forKey: "email") as? String == self.foreman.email {
 //                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

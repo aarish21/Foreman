@@ -21,17 +21,11 @@ class DashboardVC: UIViewController {
         super.viewDidLoad()
         self.dashboardVM = DashboardVM(dashboard: self)
         dashboardVM?.setupTableView()
-//        self.navigationItem.hidesBackButton = true
         let button1 = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addUnit))
-        let menu = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(showMenu))
+        let menu = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"),
+                                   style: .plain, target: self, action: #selector(showMenu))
         self.navigationItem.leftBarButtonItem  = menu
         self.navigationItem.rightBarButtonItem  = button1
-//        self.navigationItem.leftItemsSupplementBackButton  = false
-//        self.navigationItem.leftBarButtonItem  = button1
-//        FirestoreDB.getData(email: "", password: "") { snapshot in
-//            print(snapshot?.value)
-//        }
-        // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,7 +42,7 @@ class DashboardVC: UIViewController {
     @objc func addUnit() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
-        nextViewController.unitData = self.unitData
+//        nextViewController.unitData = self.unitData
         nextViewController.modalPresentationStyle = .pageSheet
         let navController = UINavigationController(rootViewController: nextViewController)
         navController.navigationBar.tintColor = UIColor(named: "fontColor")
@@ -62,7 +56,7 @@ class DashboardVC: UIViewController {
         present(menu!, animated: true, completion: nil)
     }
     func deleteData() {
-        do{
+        do {
             let data = try JSONEncoder().encode(unitData)
             try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
 
@@ -82,7 +76,7 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
             return dashboardVM?.configureGreetingCell(indexPath: indexPath) ?? UITableViewCell()
         }
         let cell = dashboardVM?.configureUnitCell(indexPath: indexPath) as? UnitCell ?? UnitCell()
-        cell.addEmp.addTarget(self, action: #selector(addEmployAction(sender:)), for: .touchUpInside)
+//        cell.addEmp.addTarget(self, action: #selector(addEmployAction(sender:)), for: .touchUpInside)
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -99,23 +93,23 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         print("Deleted")
           self.dashboardTV.deleteRows(at: [indexPath], with: .automatic)
        
-         
           unitData.remove(at: indexPath.row-1)
           self.deleteData()
           self.dashboardTV.reloadData()
       }
     }
-    
-    @objc func addEmployAction(sender: UIButton) {
-        let buttonTag = sender.tag
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
-        nextViewController.item = unitData[sender.tag-1]
-        nextViewController.isFromDashboardCell = true
-        let navController = UINavigationController(rootViewController: nextViewController)
-        navController.navigationBar.tintColor = UIColor(named: "fontColor")
-        self.present(navController, animated: true, completion: nil)
-        
-        print(buttonTag)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row != 0 {
+
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
+            nextViewController.unitCellItem = unitData[indexPath.row-1]
+            nextViewController.fromIndex = indexPath.row-1
+            nextViewController.isFromDashboardCell = true
+           navigationController?.pushViewController(nextViewController, animated: true)
+            
+//            print(buttonTag)
+        }
     }
+    
 }

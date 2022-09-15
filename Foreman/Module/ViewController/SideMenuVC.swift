@@ -32,5 +32,4 @@ extension SideMenuVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    
 }

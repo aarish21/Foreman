@@ -20,6 +20,7 @@ class DashboardVM {
                                           forCellReuseIdentifier: Constants.greetingsCell)
         dashboardVC?.dashboardTV.register(UINib(nibName: Constants.unitCell, bundle: .main),
                                           forCellReuseIdentifier: Constants.unitCell)
+       
     }
     func configureGreetingCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = dashboardVC?.dashboardTV.dequeueReusableCell(withIdentifier: Constants.greetingsCell,
@@ -32,9 +33,8 @@ class DashboardVM {
                                                     for: indexPath) as? UnitCell ?? UnitCell()
         cell.setup(data: dashboardVC?.unitData ?? [], indexPath: indexPath)
         
-      
+        cell.accessoryType = .disclosureIndicator
         return cell
     }
-    
     
 }

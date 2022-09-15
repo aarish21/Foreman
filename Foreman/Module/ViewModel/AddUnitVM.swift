@@ -27,7 +27,12 @@ class AddUnitVM {
     func configureGreetingCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.greetingsCell,
                                                     for: indexPath) as? GreetingsCell ?? GreetingsCell()
-        cell.greetingLbl.text = "Add Unit"
+        if addUnitVC?.isFromDashboardCell == true {
+            cell.greetingLbl.text = "Add Employ Hours"
+        } else {
+            cell.greetingLbl.text = "Add Unit"
+        }
+        
         cell.greetingLbl.font = .systemFont(ofSize: 20, weight: .bold)
         let currentDateTime = Date()
         let formatter = DateFormatter()
@@ -49,10 +54,11 @@ class AddUnitVM {
         cell.inputTextfield.placeholder = "Unit"
         cell.headerLabel.text = "Unit"
         cell.textFieldInput = { val in
-            self.addUnitVC?.item.unit = val!
+            self.addUnitVC?.unitCellItem.unit = val!
         }
         if addUnitVC?.isFromDashboardCell == true {
-            cell.isUserInteractionEnabled = false
+//            cell.isUserInteractionEnabled = false
+            cell.inputTextfield.text = addUnitVC?.unitCellItem.unit
         }
         cell.inputTextfield.delegate = self.addUnitVC
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
@@ -61,13 +67,14 @@ class AddUnitVM {
     func configureDatePicker(indexPath: IndexPath) -> UITableViewCell {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
                                                 for: indexPath) as? DatePickerCell ?? DatePickerCell()
-        cell.setup()
+        cell.setup(indexPath: indexPath, data: self.addUnitVC?.unitCellItem.employHours ?? [])
+        
         cell.start = { val in
-            self.addUnitVC?.empHrs.startTime = val!
+            self.addUnitVC?.empHrs.startTime = val.0!
+            self.addUnitVC?.empHrs.endTime = val.1!
+            self.addUnitVC?.datePickerIndex = indexPath.row
         }
-        cell.end = { val in
-            self.addUnitVC?.empHrs.endTime = val!
-        }
+       
         self.addUnitVC?.empHrs.entryTime = String(Date().timeIntervalSince1970)
         return cell
     }
@@ -75,7 +82,8 @@ class AddUnitVM {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.headingCell,
                                                     for: indexPath) as? HeadingCell ?? HeadingCell()
         cell.headingLbl.text = "Employment hours"
-        cell.headingLbl.font = .systemFont(ofSize: 17, weight: .medium)
+        cell.headingLbl.font = .systemFont(ofSize: 17, weight: .semibold)
         return cell
     }
+    
 }

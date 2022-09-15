@@ -12,9 +12,8 @@ class DatePickerCell: UITableViewCell {
     @IBOutlet weak var endTime: UIDatePicker!
     @IBOutlet weak var startTime: UIDatePicker!
     
-    @IBOutlet weak var totalTIme: UIDatePicker!
-    var start: ((_ value: String?) -> Void)?
-    var end: ((_ value: String?) -> Void)?
+    @IBOutlet weak var totalTimeLbl: UILabel!
+    var start: ((_ value: (String?, String?)) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -25,34 +24,44 @@ class DatePickerCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setup() {
+    func setup(indexPath: IndexPath, data: [EmployHours]) {
         let calendar = Calendar(identifier: .gregorian)
         let currentDate = Date()
         var components = DateComponents()
         components.calendar = calendar
         components.minute = 30
+       
         let maxDate = calendar.date(byAdding: components, to: currentDate)!
         startTime.maximumDate = Date()
         endTime.maximumDate = maxDate
-       
+        let totalTime = endTime.date.timeIntervalSince1970 - startTime.date.timeIntervalSince1970
+        let (hrs, min) = Utilities.secondsToHoursMinutesSeconds(Int(totalTime))
+        totalTimeLbl.text = "\(hrs) hr \(min) min"
         startTime.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
-//        let formatter = RelativeDateTimeFormatter()
-//        formatter.unitsStyle = .full
-//        let relativeDate = formatter.localizedString(for: startTime.date, relativeTo: endTime.date)
-//        print(relativeDate)
+        endTime.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
+    }
+    func newSetup(indexPath: IndexPath, data: [EmployHours]) {
+        let calendar = Calendar(identifier: .gregorian)
+        let currentDate = Date()
+        var components = DateComponents()
+        components.calendar = calendar
+        components.minute = 30
         
+        let maxDate = calendar.date(byAdding: components, to: currentDate)!
+        startTime.maximumDate = Date()
+        endTime.maximumDate = maxDate
+        let totalTime = endTime.date.timeIntervalSince1970 - startTime.date.timeIntervalSince1970
+        
+        let (hrs, min) = Utilities.secondsToHoursMinutesSeconds(Int(totalTime))
+        totalTimeLbl.text = "\(hrs) hr \(min) min"
+        startTime.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
+        endTime.addTarget(self, action: #selector(startTimeChanged), for: .valueChanged)
     }
     @objc func startTimeChanged() {
-//        let formatter = RelativeDateTimeFormatter()
-//        formatter.unitsStyle = .full
-//        let date = Calendar.current.dateComponents([.day], from: startTime.date, to: endTime.date).hour
-//        let relativeDate = formatter.calendar.dateComponents([.minute,.hour,.second], from: startTime.date, to: endTime.date).hour
-//        let relativeDate = formatter.localizedString(for: startTime.date, relativeTo: endTime.date)
-//        print(relativeDate)
-        
-        start!(String(startTime.date.timeIntervalSince1970))
-        end!(String(endTime.date.timeIntervalSince1970))
+        let totalTime = endTime.date.timeIntervalSince1970 - startTime.date.timeIntervalSince1970
+        let (hrs, min) = Utilities.secondsToHoursMinutesSeconds(Int(totalTime))
+        totalTimeLbl.text = "\(hrs) hr \(min) min"
+        start!((String(startTime.date.timeIntervalSince1970), String(endTime.date.timeIntervalSince1970)))
     }
-    
     
 }

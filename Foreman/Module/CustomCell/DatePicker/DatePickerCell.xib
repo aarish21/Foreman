@@ -15,18 +15,18 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="168" id="KGk-i7-Jjw" customClass="DatePickerCell" customModule="Foreman" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="168"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="168"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SdF-ug-fBk">
-                        <rect key="frame" x="0.0" y="9.5" width="40" height="39"/>
+                        <rect key="frame" x="0.0" y="12" width="31" height="35.5"/>
                         <color key="tintColor" red="0.054901964960000001" green="0.14509806040000001" blue="0.15294116739999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="7wc-Ka-Epy"/>
+                            <constraint firstAttribute="width" constant="30" id="7wc-Ka-Epy"/>
                             <constraint firstAttribute="height" constant="40" id="fDi-qQ-X0o"/>
                         </constraints>
-                        <imageReference key="image" image="clock.circle" catalog="system" renderingMode="hierarchical-single">
+                        <imageReference key="image" image="calendar.badge.clock" catalog="system" symbolScale="small" renderingMode="hierarchical-single">
                             <hierarchicalColors>
                                 <color systemColor="systemOrangeColor"/>
                                 <color systemColor="secondaryLabelColor"/>
@@ -35,29 +35,19 @@
                         </imageReference>
                     </imageView>
                     <datePicker contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="G17-ZR-Khv">
-                        <rect key="frame" x="100" y="9" width="108" height="40"/>
+                        <rect key="frame" x="90" y="9" width="108" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="xjm-vY-Bi2"/>
                         </constraints>
                     </datePicker>
                     <datePicker contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="O2Y-SS-f9c">
-                        <rect key="frame" x="263" y="9" width="108" height="40"/>
+                        <rect key="frame" x="253" y="9" width="108" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="QkW-xL-nd3"/>
                         </constraints>
                     </datePicker>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9iZ-el-hvc">
-                        <rect key="frame" x="45" y="58" width="45" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="E6M-ja-2k1"/>
-                            <constraint firstAttribute="width" constant="45" id="KYT-gP-F4F"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" name="fontColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZx-t5-Ra6">
-                        <rect key="frame" x="213" y="9" width="40" height="40"/>
+                        <rect key="frame" x="203" y="9" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="pY8-be-whi"/>
                             <constraint firstAttribute="height" constant="40" id="zvX-vY-rgM"/>
@@ -67,7 +57,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starts" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXh-Xr-gdX">
-                        <rect key="frame" x="45" y="9" width="50" height="40"/>
+                        <rect key="frame" x="35" y="9" width="50" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="FTH-I1-lc4"/>
                             <constraint firstAttribute="height" constant="40" id="XBn-hU-8eM"/>
@@ -76,47 +66,44 @@
                         <color key="textColor" name="fontColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="ef5-Jf-pzL">
-                        <rect key="frame" x="100" y="58" width="108" height="40"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="40" id="XTn-RH-hzg"/>
-                        </constraints>
-                    </datePicker>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3L-eX-6q4">
+                        <rect key="frame" x="35" y="59" width="355" height="40"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <color key="textColor" name="fontColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="9iZ-el-hvc" firstAttribute="leading" secondItem="FXh-Xr-gdX" secondAttribute="leading" id="8Jc-6p-G1I"/>
-                    <constraint firstItem="G17-ZR-Khv" firstAttribute="width" secondItem="ef5-Jf-pzL" secondAttribute="width" id="AAA-pi-yBd"/>
+                    <constraint firstItem="A3L-eX-6q4" firstAttribute="height" secondItem="FXh-Xr-gdX" secondAttribute="height" id="0PX-aG-63D"/>
+                    <constraint firstAttribute="bottom" secondItem="A3L-eX-6q4" secondAttribute="bottom" constant="10" id="964-2Z-BHX"/>
                     <constraint firstItem="SdF-ug-fBk" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Aug-LP-RrW"/>
                     <constraint firstItem="G17-ZR-Khv" firstAttribute="leading" secondItem="FXh-Xr-gdX" secondAttribute="trailing" constant="5" id="CsH-MH-vEF"/>
                     <constraint firstItem="tZx-t5-Ra6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="FXK-Ts-982"/>
                     <constraint firstItem="G17-ZR-Khv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="GWe-aT-8Hc"/>
                     <constraint firstItem="FXh-Xr-gdX" firstAttribute="leading" secondItem="SdF-ug-fBk" secondAttribute="trailing" constant="5" id="GvR-MG-XR7"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="LCQ-h9-GUf"/>
-                    <constraint firstItem="ef5-Jf-pzL" firstAttribute="leading" secondItem="9iZ-el-hvc" secondAttribute="trailing" constant="10" id="M8s-w6-DDp"/>
                     <constraint firstItem="G17-ZR-Khv" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.27" id="Nln-Qr-3Iy"/>
-                    <constraint firstItem="9iZ-el-hvc" firstAttribute="top" secondItem="FXh-Xr-gdX" secondAttribute="bottom" constant="9" id="Owx-P1-uFH"/>
                     <constraint firstItem="FXh-Xr-gdX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Pep-9V-chx"/>
-                    <constraint firstItem="ef5-Jf-pzL" firstAttribute="top" secondItem="G17-ZR-Khv" secondAttribute="bottom" constant="9" id="UzM-3p-xpc"/>
                     <constraint firstItem="tZx-t5-Ra6" firstAttribute="leading" secondItem="G17-ZR-Khv" secondAttribute="trailing" constant="5" id="aBX-s3-Rfp"/>
+                    <constraint firstAttribute="trailing" secondItem="A3L-eX-6q4" secondAttribute="trailing" constant="10" id="as3-gt-DXa"/>
                     <constraint firstItem="SdF-ug-fBk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b6v-jI-1fg"/>
-                    <constraint firstItem="ef5-Jf-pzL" firstAttribute="leading" secondItem="G17-ZR-Khv" secondAttribute="leading" id="hsm-Uh-c3C"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="width" secondItem="G17-ZR-Khv" secondAttribute="width" id="i10-iT-ZDA"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="leading" secondItem="tZx-t5-Ra6" secondAttribute="trailing" constant="10" id="isC-87-1rV"/>
-                    <constraint firstAttribute="bottom" secondItem="9iZ-el-hvc" secondAttribute="bottom" constant="10" id="kCy-Qb-ee3"/>
-                    <constraint firstAttribute="bottom" secondItem="ef5-Jf-pzL" secondAttribute="bottom" constant="10" id="xgH-Y2-bPR"/>
+                    <constraint firstItem="A3L-eX-6q4" firstAttribute="leading" secondItem="FXh-Xr-gdX" secondAttribute="leading" id="qdr-f2-oNu"/>
+                    <constraint firstItem="A3L-eX-6q4" firstAttribute="top" secondItem="FXh-Xr-gdX" secondAttribute="bottom" constant="10" id="vyd-bV-K3L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="endTime" destination="O2Y-SS-f9c" id="UsL-5o-chI"/>
                 <outlet property="startTime" destination="G17-ZR-Khv" id="Rtf-ty-esF"/>
-                <outlet property="totalTIme" destination="ef5-Jf-pzL" id="WoP-YT-Lwi"/>
+                <outlet property="totalTimeLbl" destination="A3L-eX-6q4" id="xff-fY-5XZ"/>
             </connections>
             <point key="canvasLocation" x="198.55072463768118" y="-105.13392857142857"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="clock.circle" catalog="system" width="128" height="121"/>
+        <image name="calendar.badge.clock" catalog="system" width="128" height="108"/>
         <namedColor name="fontColor">
             <color red="0.054901960784313725" green="0.14509803921568629" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

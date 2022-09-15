@@ -19,7 +19,6 @@ class NameTFCell: UITableViewCell, UITextFieldDelegate {
         firstView.layer.borderWidth = 2
         firstView.layer.cornerRadius = 15
       
-       
         firstView.layer.borderColor = UIColor(named: "myColor")?.cgColor
         
         secondTF.delegate = self

@@ -10,49 +10,72 @@ import UIKit
 class AddUnitVC: UIViewController {
     @IBOutlet weak var addUnitTV: UITableView!
     var addUnitVM: AddUnitVM?
-    var unitData: [UnitCellData] = []
-    var numberOfRows = 4
     var isFromDashboardCell = false
-    var item = UnitCellData()
+    var unitCellItem = UnitCellData()
     var employData: [EmployHours] = []
-    var empHrs = EmployHours()
-   
+    var empHrs = EmployHours() {
+        didSet {
+//            item.employHours[datePickerIndex-3].startTime = empHrs.startTime
+//            item.employHours[datePickerIndex].startTime = empHrs.endTime
+//            addUnitTV.reloadData()
+        }
+    }
+    var fromIndex = 0
+    var datePickerIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addUnitVM = AddUnitVM(addUnitVC: self)
         
         addUnitVM?.setupTV()
-        let button1 = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addUnit))
-        self.navigationItem.rightBarButtonItem  = button1
         let button2 = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneAction))
-        self.navigationItem.leftBarButtonItem  = button2
+        let button1 = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addUnit))
+        self.navigationItem.rightBarButtonItems  = [button2, button1]
         // Do any additional setup after loading the view.
     }
     @objc func doneAction() {
-        item.employHours.append(empHrs)
-        unitData.append(item)
-        print(unitData)
-        
-        do{
-            let data = try JSONEncoder().encode(unitData)
-            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
+        for index in 0..<unitCellItem.employHours.count {
+            let indexPath = IndexPath(row: index, section: 0)
+            let cell = addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
+                                                     for: indexPath) as? DatePickerCell ?? DatePickerCell()
+//            unitCellItem.employHours[indexPath.row] = EmployHours(startTime: "\(cell.startTime.date.timeIntervalSince1970)",
+//                                                          endTime: "\(cell.endTime.date.timeIntervalSince1970)",
+//                                                          entryTime: "\(Date().timeIntervalSince1970)")
+            print(cell)
+        }
+      
+//        if !isFromDashboardCell {
+//            unitCellItem.employHours.append(empHrs)
+//            unitData.append(item)
+//            print(unitData)
+//        } else {
+//            unitData[fromIndex] = unitCellItem
+//        }
 
+        do {
+            let data = try JSONEncoder().encode([unitCellItem])
+            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
         } catch {
             print("Unable to save data.")
         }
+//
         self.navigationController?.popViewController(animated: true)
         
     }
     @objc func addUnit() {
-        numberOfRows+=1
-//        let item = EmployHours(startTime: <#T##String#>, endTime: <#T##String#>, entryTime: <#T##String#>)
+        
+        let addEmployHours = EmployHours(startTime: "0",
+                                         endTime: "0",
+                                         entryTime: "\(Date().timeIntervalSince1970)")
+        unitCellItem.employHours.append(addEmployHours)
         addUnitTV.reloadData()
+        
     }
 }
 
 extension AddUnitVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+   
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return unitCellItem.employHours.count + 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -83,18 +106,18 @@ extension AddUnitVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDele
         }
         return 100
     }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         if indexPath.row == 0 || indexPath.row == 2 || indexPath.row == 1 {
             return false
         }
         return true
     }
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
         print("Deleted")
 
-        self.numberOfRows-=1
-          
         self.addUnitTV.deleteRows(at: [indexPath], with: .automatic)
       }
     }
