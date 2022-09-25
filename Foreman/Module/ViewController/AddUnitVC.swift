@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import CoreData
 class AddUnitVC: UIViewController {
     @IBOutlet weak var addUnitTV: UITableView!
     var addUnitVM: AddUnitVM?
@@ -16,6 +16,8 @@ class AddUnitVC: UIViewController {
     var employData: [EmployHours] = []
     var fromIndex = 0
     var datePickerIndex = 0
+    
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +32,17 @@ class AddUnitVC: UIViewController {
     }
     
     @objc func doneAction() {
-        for index in 0..<unitCellItem.employHours.count {
-            let indexPath = IndexPath(row: index+3, section: 0)
-            let cell: DatePickerCell = (addUnitTV.cellForRow(at: indexPath) as? DatePickerCell)!
-            unitCellItem.employHours[index] = EmployHours(startTime: "\(cell.startTime.date.timeIntervalSince1970)",
-                                                          endTime: "\(cell.endTime.date.timeIntervalSince1970)",
-                                                          entryTime: "\(Date().timeIntervalSince1970)")
-            print(cell)
+        if let employCount = unitCellItem.employHours?.count {
+            for index in 0..<employCount {
+                let indexPath = IndexPath(row: index+3, section: 0)
+                let cell: DatePickerCell = (addUnitTV.cellForRow(at: indexPath) as? DatePickerCell)!
+                let empHours = EmployHours(context: context ?? NSManagedObjectContext())
+                empHours.entryTime = "\(Date().timeIntervalSince1970)"
+                empHours.endTime = "\(cell.endTime.date.timeIntervalSince1970)"
+                empHours.startTime = "\(cell.startTime.date.timeIntervalSince1970)"
+                unitCellItem.employHours?[index] = empHours
+                print(cell)
+            }
         }
       
         if !isFromDashboardCell {
@@ -44,34 +50,34 @@ class AddUnitVC: UIViewController {
             unitData.append(unitCellItem)
             print(unitData)
         } else {
-            unitData[fromIndex] = unitCellItem
+//            unitData[fromIndex] = unitCellItem
         }
-
         do {
-            let data = try JSONEncoder().encode(unitData)
-            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
+            try self.context?.save()
         } catch {
-            print("Unable to save data.")
+            print(error.localizedDescription)
         }
+        
+        
 //
         self.navigationController?.popViewController(animated: true)
         
     }
     @objc func addUnit() {
-        
-        let addEmployHours = EmployHours(startTime: "\(Date().timeIntervalSince1970)",
-                                         endTime: "\(Date().timeIntervalSince1970)",
-                                         entryTime: "\(Date().timeIntervalSince1970)")
-        unitCellItem.employHours.append(addEmployHours)
+
+        let addEmployHours = EmployHours(context: context ?? NSManagedObjectContext())
+
+
         addUnitTV.reloadData()
-        
+
     }
 }
 
 extension AddUnitVC: UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return unitCellItem.employHours.count + 3
+        let employCount = unitCellItem.employHours?.count ?? 0
+        return employCount + 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -12,6 +12,7 @@ class DashboardVC: UIViewController {
     
     var height: [Int] = []
     @IBOutlet weak var dashboardTV: UITableView!
+    let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     var unitData: [UnitCellData] = [] {
         didSet {
             dashboardTV.reloadData()
@@ -29,20 +30,12 @@ class DashboardVC: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        do {
-            let data = try Data(contentsOf: Constants.saveUnitData)
-            
-            unitData = try JSONDecoder().decode([UnitCellData].self, from: data)
-            
-        } catch {
-            unitData = []
-            print("Unable to .")
-        }
+       fetchData()
     }
     @objc func addUnit() {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
-        nextViewController.unitData = self.unitData
+       
         nextViewController.modalPresentationStyle = .pageSheet
         let navController = UINavigationController(rootViewController: nextViewController)
         navController.navigationBar.tintColor = UIColor(named: "fontColor")
@@ -55,14 +48,26 @@ class DashboardVC: UIViewController {
         menu?.presentationStyle = .menuSlideIn
         present(menu!, animated: true, completion: nil)
     }
-    func deleteData() {
+    
+    func fetchData() {
         do {
-            let data = try JSONEncoder().encode(unitData)
-            try data.write(to: Constants.saveUnitData, options: .completeFileProtection)
-
-        } catch {
-            print("Unable to save data.")
+            self.unitData = try context?.fetch(UnitCellData.fetchRequest()) ?? []
+            self.dashboardTV.reloadData()
         }
+        catch {
+            print(error.localizedDescription)
+        }
+    }
+    func deleteData(indexPath: IndexPath) {
+        let objectToRemove = self.unitData[indexPath.row-1]
+        self.context?.delete(objectToRemove)
+        do {
+            try self.context?.save()
+            
+        } catch {
+            print(error.localizedDescription)
+        }
+        self.fetchData()
     }
 }
 
@@ -84,7 +89,7 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             return 110
         }
-        let count = unitData[indexPath.row-1].equipment.count
+        let count = unitData[indexPath.row-1].employHours?.count ?? 1
         let height = 55 + count * 23
         return  CGFloat(height)
     }
@@ -93,9 +98,7 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         print("Deleted")
           self.dashboardTV.deleteRows(at: [indexPath], with: .automatic)
        
-          unitData.remove(at: indexPath.row-1)
-          self.deleteData()
-          self.dashboardTV.reloadData()
+          self.deleteData(indexPath: indexPath)
       }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

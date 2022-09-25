@@ -15,7 +15,7 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="168" id="KGk-i7-Jjw" customClass="DatePickerCell" customModule="Foreman" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="400" height="168"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="168"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -67,9 +67,15 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A3L-eX-6q4">
-                        <rect key="frame" x="35" y="59" width="355" height="40"/>
+                        <rect key="frame" x="35" y="59" width="215" height="40"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" name="fontColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aeU-I8-Ip5">
+                        <rect key="frame" x="270" y="59" width="120" height="40"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -81,21 +87,27 @@
                     <constraint firstItem="tZx-t5-Ra6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="FXK-Ts-982"/>
                     <constraint firstItem="G17-ZR-Khv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="GWe-aT-8Hc"/>
                     <constraint firstItem="FXh-Xr-gdX" firstAttribute="leading" secondItem="SdF-ug-fBk" secondAttribute="trailing" constant="5" id="GvR-MG-XR7"/>
+                    <constraint firstAttribute="trailing" secondItem="A3L-eX-6q4" secondAttribute="trailing" constant="150" id="JgI-lf-3eC"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="LCQ-h9-GUf"/>
                     <constraint firstItem="G17-ZR-Khv" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.27" id="Nln-Qr-3Iy"/>
                     <constraint firstItem="FXh-Xr-gdX" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="9" id="Pep-9V-chx"/>
+                    <constraint firstItem="aeU-I8-Ip5" firstAttribute="top" secondItem="O2Y-SS-f9c" secondAttribute="bottom" constant="10" id="S1t-7z-edA"/>
                     <constraint firstItem="tZx-t5-Ra6" firstAttribute="leading" secondItem="G17-ZR-Khv" secondAttribute="trailing" constant="5" id="aBX-s3-Rfp"/>
-                    <constraint firstAttribute="trailing" secondItem="A3L-eX-6q4" secondAttribute="trailing" constant="10" id="as3-gt-DXa"/>
                     <constraint firstItem="SdF-ug-fBk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="b6v-jI-1fg"/>
+                    <constraint firstItem="aeU-I8-Ip5" firstAttribute="leading" secondItem="A3L-eX-6q4" secondAttribute="trailing" constant="20" id="bFg-pK-VEa"/>
+                    <constraint firstItem="aeU-I8-Ip5" firstAttribute="height" secondItem="A3L-eX-6q4" secondAttribute="height" id="d2b-gI-cT7"/>
+                    <constraint firstAttribute="trailing" secondItem="aeU-I8-Ip5" secondAttribute="trailing" constant="10" id="dfJ-qf-5YJ"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="width" secondItem="G17-ZR-Khv" secondAttribute="width" id="i10-iT-ZDA"/>
                     <constraint firstItem="O2Y-SS-f9c" firstAttribute="leading" secondItem="tZx-t5-Ra6" secondAttribute="trailing" constant="10" id="isC-87-1rV"/>
                     <constraint firstItem="A3L-eX-6q4" firstAttribute="leading" secondItem="FXh-Xr-gdX" secondAttribute="leading" id="qdr-f2-oNu"/>
+                    <constraint firstAttribute="bottom" secondItem="aeU-I8-Ip5" secondAttribute="bottom" constant="10" id="r9l-rQ-Kz8"/>
                     <constraint firstItem="A3L-eX-6q4" firstAttribute="top" secondItem="FXh-Xr-gdX" secondAttribute="bottom" constant="10" id="vyd-bV-K3L"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="endTime" destination="O2Y-SS-f9c" id="UsL-5o-chI"/>
+                <outlet property="entryDateLbl" destination="aeU-I8-Ip5" id="Xzm-1F-6DS"/>
                 <outlet property="startTime" destination="G17-ZR-Khv" id="Rtf-ty-esF"/>
                 <outlet property="totalTimeLbl" destination="A3L-eX-6q4" id="xff-fY-5XZ"/>
             </connections>

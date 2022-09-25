@@ -12,6 +12,7 @@ class DatePickerCell: UITableViewCell {
     @IBOutlet weak var endTime: UIDatePicker!
     @IBOutlet weak var startTime: UIDatePicker!
     
+    @IBOutlet weak var entryDateLbl: UILabel!
     @IBOutlet weak var totalTimeLbl: UILabel!
 
     override func awakeFromNib() {
@@ -35,11 +36,16 @@ class DatePickerCell: UITableViewCell {
         startTime.maximumDate = Date()
         endTime.maximumDate = maxDate
         
-        let num1 = NumberFormatter().number(from: data[indexPath.row-3].startTime)?.doubleValue
+        let num1 = NumberFormatter().number(from: data[indexPath.row-3].startTime ?? "0")?.doubleValue
         startTime.date = Date(timeIntervalSince1970: num1 ?? Date().timeIntervalSince1970)
-        let num2 = NumberFormatter().number(from: data[indexPath.row-3].endTime)?.doubleValue
+        let num2 = NumberFormatter().number(from: data[indexPath.row-3].endTime ?? "0")?.doubleValue
         endTime.date = Date(timeIntervalSince1970: num2 ?? Date().timeIntervalSince1970)
-        
+        let dateFormatterPrint = DateFormatter()
+        dateFormatterPrint.dateFormat = "MMM dd,yyyy"
+        let num3 = NumberFormatter().number(from: data[indexPath.row-3].entryTime ?? "0")?.doubleValue
+        let date = dateFormatterPrint.string(from: Date(timeIntervalSince1970: num3 ?? 0.0))
+        entryDateLbl.text = date
+    
         let totalTime = endTime.date.timeIntervalSince1970 - startTime.date.timeIntervalSince1970
         let (hrs, min) = Utilities.secondsToHoursMinutesSeconds(Int(totalTime))
         totalTimeLbl.text = "\(hrs) hr \(min) min"

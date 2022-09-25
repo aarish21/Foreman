@@ -32,31 +32,37 @@ class UnitCell: UITableViewCell {
         
         // calculating total hours for each cell in dashboardVC
         var totalHours = 0
-        for index in 0..<data[indexPath.row-1].employHours.count {
-            let startT = data[indexPath.row-1].employHours[index].startTime
-            let endT = data[indexPath.row-1].employHours[index].endTime
-            let num1 = NumberFormatter().number(from: startT)?.doubleValue
-            let num2 = NumberFormatter().number(from: endT)?.doubleValue
-        
-            if let start = num1, let end = num2 {
-                totalHours += Int(end-start)
+        if let empHours  = data[indexPath.row-1].employHours {
+            for index in 0..<empHours.count {
+                let startT = empHours[index].startTime ?? "0"
+                let endT = empHours[index].endTime ?? "0"
+                let num1 = NumberFormatter().number(from: startT)?.doubleValue
+                let num2 = NumberFormatter().number(from: endT)?.doubleValue
+            
+                if let start = num1, let end = num2 {
+                    totalHours += Int(end-start)
+                    
+                    let (hours, min) = Utilities.secondsToHoursMinutesSeconds(Int(end-start))
+                    let element = "\(hours) hr \(min) min"
+                    let labelNum = UILabel()
+                    labelNum.text = element
+                    labelNum.font = .systemFont(ofSize: 13)
+                    labelNum.textColor = .secondaryLabel
+                    labelNum.frame = CGRect( x: 50, y: yPos, width: Int(UIScreen.main.bounds.width), height: 20)
+                    yPos += 23
+                    self.contentView.addSubview(labelNum)
+
+                }
+                
+                let (hours, min) = Utilities.secondsToHoursMinutesSeconds(totalHours)
+                employHrsLbl.text = "Employee hours: \(hours) hr \(min) min "
+                
             }
-         
         }
+        
        
         let (hours, min) = Utilities.secondsToHoursMinutesSeconds(totalHours)
         employHrsLbl.text = "Employee hours: \(hours) hr \(min) min "
-        
-//        for iter in 0..<data[indexPath.row-1].equipment.count {
-//            let element = "\(data[indexPath.row-1].equipment[iter]): \(data[indexPath.row-1].equipHours[iter]) Hrs"
-//               let labelNum = UILabel()
-//               labelNum.text = element
-//            labelNum.font = .systemFont(ofSize: 13)
-//               labelNum.textColor = .secondaryLabel
-//               labelNum.frame = CGRect( x: 50, y: yPos, width: Int(UIScreen.main.bounds.width), height: 20)
-//               yPos += 23
-//               self.contentView.addSubview(labelNum)
-//           }
         
     }
   

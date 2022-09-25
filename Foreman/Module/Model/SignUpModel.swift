@@ -23,14 +23,14 @@ struct Login: Codable {
     var password: String = ""
 }
 
-struct UnitCellData: Codable {
-    var unit: String = ""
-    var employHours: [EmployHours] = []
-    var equipment: [String] = []
-}
-
-struct EmployHours: Codable {
-    var startTime: String = ""
-    var endTime: String = ""
-    var entryTime: String = ""
-}
+//struct UnitCellData: Codable {
+//    var unit: String = ""
+//    var employHours: [EmployHours] = []
+//    var equipment: [String] = []
+//}
+//
+//struct EmployHours: Codable {
+//    var startTime: String = ""
+//    var endTime: String = ""
+//    var entryTime: String = ""
+//}
