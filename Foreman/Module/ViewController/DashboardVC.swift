@@ -7,17 +7,20 @@
 
 import UIKit
 import SideMenu
+var unitData = [UnitCellData]()
+
 class DashboardVC: UIViewController {
     var dashboardVM: DashboardVM?
+    let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
     
     var height: [Int] = []
     @IBOutlet weak var dashboardTV: UITableView!
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
-    var unitData: [UnitCellData] = [] {
-        didSet {
-            dashboardTV.reloadData()
-        }
-    }
+//    var unitData: [UnitCellData] = [] {
+//        didSet {
+//            dashboardTV.reloadData()
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.dashboardVM = DashboardVM(dashboard: self)
@@ -27,6 +30,7 @@ class DashboardVC: UIViewController {
                                    style: .plain, target: self, action: #selector(showMenu))
         self.navigationItem.leftBarButtonItem  = menu
         self.navigationItem.rightBarButtonItem  = button1
+        print(paths[0])
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +55,7 @@ class DashboardVC: UIViewController {
     
     func fetchData() {
         do {
-            self.unitData = try context?.fetch(UnitCellData.fetchRequest()) ?? []
+            unitData = try context?.fetch(UnitCellData.fetchRequest()) ?? []
             self.dashboardTV.reloadData()
         }
         catch {
@@ -59,7 +63,7 @@ class DashboardVC: UIViewController {
         }
     }
     func deleteData(indexPath: IndexPath) {
-        let objectToRemove = self.unitData[indexPath.row-1]
+        let objectToRemove = unitData[indexPath.row-1]
         self.context?.delete(objectToRemove)
         do {
             try self.context?.save()
@@ -89,8 +93,8 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             return 110
         }
-        let count = unitData[indexPath.row-1].employHours?.count ?? 1
-        let height = 55 + count * 23
+//        let count = unitData[indexPath.row-1].employHours?.count ?? 1
+        let height = 55 /*+ count * 23*/
         return  CGFloat(height)
     }
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -106,10 +110,11 @@ extension DashboardVC: UITableViewDelegate, UITableViewDataSource {
 
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let nextViewController = (storyBoard.instantiateViewController(withIdentifier: "AddUnitVC") as? AddUnitVC)!
-            nextViewController.unitData = self.unitData
-            nextViewController.unitCellItem = unitData[indexPath.row-1]
+//            nextViewController.unitData = self.unitData
+//            nextViewController.unitCellItem = unitData[indexPath.row-1]
+            nextViewController.selectedData = unitData[indexPath.row-1]
             nextViewController.fromIndex = indexPath.row-1
-            nextViewController.isFromDashboardCell = true
+//            nextViewController.isFromDashboardCell = true
            navigationController?.pushViewController(nextViewController, animated: true)
             
 //            print(buttonTag)

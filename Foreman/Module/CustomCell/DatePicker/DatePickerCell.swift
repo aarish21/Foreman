@@ -36,13 +36,13 @@ class DatePickerCell: UITableViewCell {
         startTime.maximumDate = Date()
         endTime.maximumDate = maxDate
         
-        let num1 = NumberFormatter().number(from: data[indexPath.row-3].startTime ?? "0")?.doubleValue
+        let num1 = NumberFormatter().number(from: data[indexPath.row-3].startTime )?.doubleValue
         startTime.date = Date(timeIntervalSince1970: num1 ?? Date().timeIntervalSince1970)
-        let num2 = NumberFormatter().number(from: data[indexPath.row-3].endTime ?? "0")?.doubleValue
+        let num2 = NumberFormatter().number(from: data[indexPath.row-3].endTime )?.doubleValue
         endTime.date = Date(timeIntervalSince1970: num2 ?? Date().timeIntervalSince1970)
         let dateFormatterPrint = DateFormatter()
         dateFormatterPrint.dateFormat = "MMM dd,yyyy"
-        let num3 = NumberFormatter().number(from: data[indexPath.row-3].entryTime ?? "0")?.doubleValue
+        let num3 = NumberFormatter().number(from: data[indexPath.row-3].entryTime )?.doubleValue
         let date = dateFormatterPrint.string(from: Date(timeIntervalSince1970: num3 ?? 0.0))
         entryDateLbl.text = date
     

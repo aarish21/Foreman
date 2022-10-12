@@ -28,9 +28,9 @@ struct Login: Codable {
 //    var employHours: [EmployHours] = []
 //    var equipment: [String] = []
 //}
-//
-//struct EmployHours: Codable {
-//    var startTime: String = ""
-//    var endTime: String = ""
-//    var entryTime: String = ""
-//}
+
+public class EmployHours: NSObject, Codable {
+    var startTime: String = ""
+    var endTime: String = ""
+    var entryTime: String = ""
+}

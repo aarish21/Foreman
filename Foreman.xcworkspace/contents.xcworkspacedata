@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:EmployHours+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
-      location = "group:EmployHours+CoreDataProperties.swift">
-   </FileRef>
-   <FileRef
       location = "group:Foreman.xcodeproj">
    </FileRef>
    <FileRef

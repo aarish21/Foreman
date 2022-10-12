@@ -31,7 +31,7 @@ class DashboardVM {
     func configureUnitCell(indexPath: IndexPath) -> UITableViewCell {
         let cell = dashboardVC?.dashboardTV.dequeueReusableCell(withIdentifier: Constants.unitCell,
                                                     for: indexPath) as? UnitCell ?? UnitCell()
-        cell.setup(data: dashboardVC?.unitData ?? [], indexPath: indexPath)
+        cell.setup(data: unitData, indexPath: indexPath)
         
         cell.accessoryType = .disclosureIndicator
         return cell

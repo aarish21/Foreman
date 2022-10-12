@@ -54,12 +54,9 @@ class AddUnitVM {
         cell.inputTextfield.placeholder = "Unit"
         cell.headerLabel.text = "Unit"
         cell.textFieldInput = { val in
-            self.addUnitVC?.unitCellItem.unit = val!
+            self.addUnitVC?.selectedData?.unit = val!
         }
-        if addUnitVC?.isFromDashboardCell == true {
-//            cell.isUserInteractionEnabled = false
-            cell.inputTextfield.text = addUnitVC?.unitCellItem.unit
-        }
+        cell.inputTextfield.text = addUnitVC?.selectedData?.unit
         cell.inputTextfield.delegate = self.addUnitVC
         cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: UIScreen.main.bounds.width)
         return cell
@@ -67,7 +64,7 @@ class AddUnitVM {
     func configureDatePicker(indexPath: IndexPath) -> UITableViewCell {
         let cell = addUnitVC?.addUnitTV.dequeueReusableCell(withIdentifier: Constants.datePickerCell,
                                                 for: indexPath) as? DatePickerCell ?? DatePickerCell()
-        cell.setup(indexPath: indexPath, data: self.addUnitVC?.unitCellItem.employHours ?? [])
+//        cell.setup(indexPath: indexPath, data: self.addUnitVC?.unitCellItem.employHours ?? [])
 
         return cell
     }
